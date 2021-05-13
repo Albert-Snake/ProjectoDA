@@ -32,7 +32,7 @@ namespace Projecto_de_DA
             this.components = new System.ComponentModel.Container();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.tbxNomePromotor = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbxCodigoAcessoPromotor = new System.Windows.Forms.TextBox();
             this.tbxTelemovelPromotor = new System.Windows.Forms.TextBox();
             this.tbxEmailPromotor = new System.Windows.Forms.TextBox();
             this.tbxMoradaPromotor = new System.Windows.Forms.TextBox();
@@ -47,10 +47,12 @@ namespace Projecto_de_DA
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnAtualizar = new System.Windows.Forms.Button();
             this.btnDesbloquear = new System.Windows.Forms.Button();
             this.bsPromotores = new System.Windows.Forms.BindingSource(this.components);
+            this.label9 = new System.Windows.Forms.Label();
+            this.tbxSenhaPromotor = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.bsPromotores)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,45 +67,52 @@ namespace Projecto_de_DA
             // 
             // tbxNomePromotor
             // 
-            this.tbxNomePromotor.Location = new System.Drawing.Point(382, 96);
+            this.tbxNomePromotor.Location = new System.Drawing.Point(366, 111);
             this.tbxNomePromotor.Name = "tbxNomePromotor";
             this.tbxNomePromotor.Size = new System.Drawing.Size(496, 20);
             this.tbxNomePromotor.TabIndex = 2;
+            this.tbxNomePromotor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox1
+            // tbxCodigoAcessoPromotor
             // 
-            this.textBox1.Location = new System.Drawing.Point(382, 316);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(496, 20);
-            this.textBox1.TabIndex = 3;
+            this.tbxCodigoAcessoPromotor.Location = new System.Drawing.Point(408, 241);
+            this.tbxCodigoAcessoPromotor.Name = "tbxCodigoAcessoPromotor";
+            this.tbxCodigoAcessoPromotor.Size = new System.Drawing.Size(454, 20);
+            this.tbxCodigoAcessoPromotor.TabIndex = 3;
+            this.tbxCodigoAcessoPromotor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbxCodigoAcessoPromotor.UseSystemPasswordChar = true;
             // 
             // tbxTelemovelPromotor
             // 
-            this.tbxTelemovelPromotor.Location = new System.Drawing.Point(382, 273);
+            this.tbxTelemovelPromotor.Location = new System.Drawing.Point(366, 215);
             this.tbxTelemovelPromotor.Name = "tbxTelemovelPromotor";
             this.tbxTelemovelPromotor.Size = new System.Drawing.Size(496, 20);
             this.tbxTelemovelPromotor.TabIndex = 4;
+            this.tbxTelemovelPromotor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tbxEmailPromotor
             // 
-            this.tbxEmailPromotor.Location = new System.Drawing.Point(382, 231);
+            this.tbxEmailPromotor.Location = new System.Drawing.Point(366, 189);
             this.tbxEmailPromotor.Name = "tbxEmailPromotor";
             this.tbxEmailPromotor.Size = new System.Drawing.Size(496, 20);
             this.tbxEmailPromotor.TabIndex = 5;
+            this.tbxEmailPromotor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tbxMoradaPromotor
             // 
-            this.tbxMoradaPromotor.Location = new System.Drawing.Point(382, 186);
+            this.tbxMoradaPromotor.Location = new System.Drawing.Point(366, 163);
             this.tbxMoradaPromotor.Name = "tbxMoradaPromotor";
             this.tbxMoradaPromotor.Size = new System.Drawing.Size(496, 20);
             this.tbxMoradaPromotor.TabIndex = 6;
+            this.tbxMoradaPromotor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tbxNIFPromotor
             // 
-            this.tbxNIFPromotor.Location = new System.Drawing.Point(382, 141);
+            this.tbxNIFPromotor.Location = new System.Drawing.Point(366, 137);
             this.tbxNIFPromotor.Name = "tbxNIFPromotor";
             this.tbxNIFPromotor.Size = new System.Drawing.Size(496, 20);
             this.tbxNIFPromotor.TabIndex = 7;
+            this.tbxNIFPromotor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnAdicionar
             // 
@@ -130,7 +139,7 @@ namespace Projecto_de_DA
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(325, 99);
+            this.label1.Location = new System.Drawing.Point(309, 114);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 10;
@@ -139,7 +148,7 @@ namespace Projecto_de_DA
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(325, 276);
+            this.label2.Location = new System.Drawing.Point(309, 218);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 13);
             this.label2.TabIndex = 11;
@@ -148,16 +157,16 @@ namespace Projecto_de_DA
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(325, 319);
+            this.label3.Location = new System.Drawing.Point(309, 244);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.Size = new System.Drawing.Size(93, 13);
             this.label3.TabIndex = 12;
-            this.label3.Text = "Nome";
+            this.label3.Text = "Codigo de Acesso";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(325, 144);
+            this.label4.Location = new System.Drawing.Point(309, 140);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(24, 13);
             this.label4.TabIndex = 13;
@@ -166,7 +175,7 @@ namespace Projecto_de_DA
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(325, 234);
+            this.label5.Location = new System.Drawing.Point(309, 192);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(32, 13);
             this.label5.TabIndex = 14;
@@ -175,7 +184,7 @@ namespace Projecto_de_DA
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(325, 189);
+            this.label6.Location = new System.Drawing.Point(309, 166);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(43, 13);
             this.label6.TabIndex = 15;
@@ -195,29 +204,30 @@ namespace Projecto_de_DA
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(512, 49);
+            this.label8.Location = new System.Drawing.Point(494, 53);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(180, 21);
             this.label8.TabIndex = 17;
             this.label8.Text = "Detalhes do Promotor";
             // 
-            // button1
+            // btnEliminar
             // 
-            this.button1.Location = new System.Drawing.Point(601, 364);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(115, 60);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "Adicionar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnEliminar.Location = new System.Drawing.Point(601, 364);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(115, 60);
+            this.btnEliminar.TabIndex = 18;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
-            // button2
+            // btnAtualizar
             // 
-            this.button2.Location = new System.Drawing.Point(469, 364);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(115, 60);
-            this.button2.TabIndex = 19;
-            this.button2.Text = "Adicionar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnAtualizar.Location = new System.Drawing.Point(469, 364);
+            this.btnAtualizar.Name = "btnAtualizar";
+            this.btnAtualizar.Size = new System.Drawing.Size(115, 60);
+            this.btnAtualizar.TabIndex = 19;
+            this.btnAtualizar.Text = "Atualizar Dados";
+            this.btnAtualizar.UseVisualStyleBackColor = true;
             // 
             // btnDesbloquear
             // 
@@ -232,14 +242,34 @@ namespace Projecto_de_DA
             this.btnDesbloquear.UseVisualStyleBackColor = true;
             this.btnDesbloquear.Click += new System.EventHandler(this.btnDesbloquear_Click);
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(309, 270);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(38, 13);
+            this.label9.TabIndex = 22;
+            this.label9.Text = "Senha";
+            // 
+            // tbxSenhaPromotor
+            // 
+            this.tbxSenhaPromotor.Location = new System.Drawing.Point(366, 267);
+            this.tbxSenhaPromotor.Name = "tbxSenhaPromotor";
+            this.tbxSenhaPromotor.Size = new System.Drawing.Size(496, 20);
+            this.tbxSenhaPromotor.TabIndex = 21;
+            this.tbxSenhaPromotor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbxSenhaPromotor.UseSystemPasswordChar = true;
+            // 
             // Promotores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(890, 453);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.tbxSenhaPromotor);
             this.Controls.Add(this.btnDesbloquear);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnAtualizar);
+            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -254,7 +284,7 @@ namespace Projecto_de_DA
             this.Controls.Add(this.tbxMoradaPromotor);
             this.Controls.Add(this.tbxEmailPromotor);
             this.Controls.Add(this.tbxTelemovelPromotor);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbxCodigoAcessoPromotor);
             this.Controls.Add(this.tbxNomePromotor);
             this.Controls.Add(this.listBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -270,7 +300,7 @@ namespace Projecto_de_DA
 
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.TextBox tbxNomePromotor;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbxCodigoAcessoPromotor;
         private System.Windows.Forms.TextBox tbxTelemovelPromotor;
         private System.Windows.Forms.TextBox tbxEmailPromotor;
         private System.Windows.Forms.TextBox tbxMoradaPromotor;
@@ -286,8 +316,10 @@ namespace Projecto_de_DA
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnAtualizar;
         private System.Windows.Forms.Button btnDesbloquear;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox tbxSenhaPromotor;
     }
 }
