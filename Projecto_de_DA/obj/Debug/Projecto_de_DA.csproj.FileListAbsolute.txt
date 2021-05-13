@@ -1,0 +1,26 @@
+C:\Users\Alberto\Google Drive\DA - Desenvolvimento de Aplicações\Project\Projecto_de_DA\bin\Debug\Projecto_de_DA.exe.config
+C:\Users\Alberto\Google Drive\DA - Desenvolvimento de Aplicações\Project\Projecto_de_DA\bin\Debug\Projecto_de_DA.exe
+C:\Users\Alberto\Google Drive\DA - Desenvolvimento de Aplicações\Project\Projecto_de_DA\bin\Debug\Projecto_de_DA.pdb
+C:\Users\Alberto\Google Drive\DA - Desenvolvimento de Aplicações\Project\Projecto_de_DA\obj\Debug\Projecto_de_DA.csprojAssemblyReference.cache
+C:\Users\Alberto\Google Drive\DA - Desenvolvimento de Aplicações\Project\Projecto_de_DA\obj\Debug\Projecto_de_DA.Form1.resources
+C:\Users\Alberto\Google Drive\DA - Desenvolvimento de Aplicações\Project\Projecto_de_DA\obj\Debug\Projecto_de_DA.Properties.Resources.resources
+C:\Users\Alberto\Google Drive\DA - Desenvolvimento de Aplicações\Project\Projecto_de_DA\obj\Debug\Projecto_de_DA.csproj.GenerateResource.cache
+C:\Users\Alberto\Google Drive\DA - Desenvolvimento de Aplicações\Project\Projecto_de_DA\obj\Debug\Projecto_de_DA.csproj.CoreCompileInputs.cache
+C:\Users\Alberto\Google Drive\DA - Desenvolvimento de Aplicações\Project\Projecto_de_DA\obj\Debug\Projecto_de_DA.exe
+C:\Users\Alberto\Google Drive\DA - Desenvolvimento de Aplicações\Project\Projecto_de_DA\obj\Debug\Projecto_de_DA.pdb
+C:\Users\alber\Desktop\Projecto_de_DA\bin\Debug\Projecto_de_DA.exe.config
+C:\Users\alber\Desktop\Projecto_de_DA\bin\Debug\Projecto_de_DA.exe
+C:\Users\alber\Desktop\Projecto_de_DA\bin\Debug\Projecto_de_DA.pdb
+C:\Users\alber\Desktop\Projecto_de_DA\obj\Debug\Projecto_de_DA.csprojAssemblyReference.cache
+C:\Users\alber\Desktop\Projecto_de_DA\obj\Debug\Projecto_de_DA.Form1.resources
+C:\Users\alber\Desktop\Projecto_de_DA\obj\Debug\Projecto_de_DA.Promotores.resources
+C:\Users\alber\Desktop\Projecto_de_DA\obj\Debug\Projecto_de_DA.Properties.Resources.resources
+C:\Users\alber\Desktop\Projecto_de_DA\obj\Debug\Projecto_de_DA.csproj.GenerateResource.cache
+C:\Users\alber\Desktop\Projecto_de_DA\obj\Debug\Projecto_de_DA.csproj.CoreCompileInputs.cache
+C:\Users\alber\Desktop\Projecto_de_DA\obj\Debug\Projecto_de_DA.exe
+C:\Users\alber\Desktop\Projecto_de_DA\obj\Debug\Projecto_de_DA.pdb
+C:\Users\alber\Desktop\Projecto_de_DA\bin\Debug\EntityFramework.dll
+C:\Users\alber\Desktop\Projecto_de_DA\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\alber\Desktop\Projecto_de_DA\bin\Debug\EntityFramework.xml
+C:\Users\alber\Desktop\Projecto_de_DA\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\alber\Desktop\Projecto_de_DA\obj\Debug\Projecto_de_DA.csproj.CopyComplete

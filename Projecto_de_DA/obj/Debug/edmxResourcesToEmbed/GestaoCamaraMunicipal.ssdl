@@ -1,0 +1,323 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GestaoCamaraMunicipal.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="GestaoCamaraMunicipalStoreContainer">
+    <EntitySet Name="TipoDocumentoSet" EntityType="GestaoCamaraMunicipal.Store.TipoDocumentoSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PromotorSet" EntityType="GestaoCamaraMunicipal.Store.PromotorSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProcessoSet" EntityType="GestaoCamaraMunicipal.Store.ProcessoSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EstadoProcessoSet" EntityType="GestaoCamaraMunicipal.Store.EstadoProcessoSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DocumentoSet" EntityType="GestaoCamaraMunicipal.Store.DocumentoSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProjetoSet" EntityType="GestaoCamaraMunicipal.Store.ProjetoSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TipoProjetoSet" EntityType="GestaoCamaraMunicipal.Store.TipoProjetoSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ParecerSet" EntityType="GestaoCamaraMunicipal.Store.ParecerSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="FuncionarioSet" EntityType="GestaoCamaraMunicipal.Store.FuncionarioSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EspecialistaSet" EntityType="GestaoCamaraMunicipal.Store.EspecialistaSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProjetoAtribuidoSet" EntityType="GestaoCamaraMunicipal.Store.ProjetoAtribuidoSet" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="TipoDocumentoDocumento" Association="GestaoCamaraMunicipal.Store.TipoDocumentoDocumento">
+      <End Role="TipoDocumento" EntitySet="TipoDocumentoSet" />
+      <End Role="Documento" EntitySet="DocumentoSet" />
+    </AssociationSet>
+    <AssociationSet Name="PromotorProcesso" Association="GestaoCamaraMunicipal.Store.PromotorProcesso">
+      <End Role="Promotor" EntitySet="PromotorSet" />
+      <End Role="Processo" EntitySet="ProcessoSet" />
+    </AssociationSet>
+    <AssociationSet Name="EstadoProcessoProcesso" Association="GestaoCamaraMunicipal.Store.EstadoProcessoProcesso">
+      <End Role="EstadoProcesso" EntitySet="EstadoProcessoSet" />
+      <End Role="Processo" EntitySet="ProcessoSet" />
+    </AssociationSet>
+    <AssociationSet Name="TipoProjetoProjeto" Association="GestaoCamaraMunicipal.Store.TipoProjetoProjeto">
+      <End Role="TipoProjeto" EntitySet="TipoProjetoSet" />
+      <End Role="Projeto" EntitySet="ProjetoSet" />
+    </AssociationSet>
+    <AssociationSet Name="ProcessoProjeto" Association="GestaoCamaraMunicipal.Store.ProcessoProjeto">
+      <End Role="Processo" EntitySet="ProcessoSet" />
+      <End Role="Projeto" EntitySet="ProjetoSet" />
+    </AssociationSet>
+    <AssociationSet Name="ProjetoDocumento" Association="GestaoCamaraMunicipal.Store.ProjetoDocumento">
+      <End Role="Projeto" EntitySet="ProjetoSet" />
+      <End Role="Documento" EntitySet="DocumentoSet" />
+    </AssociationSet>
+    <AssociationSet Name="ProjetoParecer" Association="GestaoCamaraMunicipal.Store.ProjetoParecer">
+      <End Role="Projeto" EntitySet="ProjetoSet" />
+      <End Role="Parecer" EntitySet="ParecerSet" />
+    </AssociationSet>
+    <AssociationSet Name="ProjetoProjetoAtribuido" Association="GestaoCamaraMunicipal.Store.ProjetoProjetoAtribuido">
+      <End Role="Projeto" EntitySet="ProjetoSet" />
+      <End Role="ProjetoAtribuido" EntitySet="ProjetoAtribuidoSet" />
+    </AssociationSet>
+    <AssociationSet Name="FuncionarioParecer" Association="GestaoCamaraMunicipal.Store.FuncionarioParecer">
+      <End Role="Funcionario" EntitySet="FuncionarioSet" />
+      <End Role="Parecer" EntitySet="ParecerSet" />
+    </AssociationSet>
+    <AssociationSet Name="FuncionarioEspecialista" Association="GestaoCamaraMunicipal.Store.FuncionarioEspecialista">
+      <End Role="Funcionario" EntitySet="FuncionarioSet" />
+      <End Role="Especialista" EntitySet="EspecialistaSet" />
+    </AssociationSet>
+    <AssociationSet Name="FuncionarioProjetoAtribuido" Association="GestaoCamaraMunicipal.Store.FuncionarioProjetoAtribuido">
+      <End Role="Funcionario" EntitySet="FuncionarioSet" />
+      <End Role="ProjetoAtribuido" EntitySet="ProjetoAtribuidoSet" />
+    </AssociationSet>
+    <AssociationSet Name="TipoProjetoEspecialista" Association="GestaoCamaraMunicipal.Store.TipoProjetoEspecialista">
+      <End Role="TipoProjeto" EntitySet="TipoProjetoSet" />
+      <End Role="Especialista" EntitySet="EspecialistaSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="TipoDocumentoSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Designacao" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PromotorSet">
+    <Key>
+      <PropertyRef Name="NIF" />
+    </Key>
+    <Property Name="NIF" Type="int" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Morada" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Telemovel" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CodigoAcesso" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Senha" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProcessoSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DataInicio" Type="datetime" Nullable="false" />
+    <Property Name="PromotorNIF" Type="int" Nullable="false" />
+    <Property Name="EstadoProcessoId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EstadoProcessoSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DescricaoEstado" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DocumentoSet">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="ProjetoId" />
+      <PropertyRef Name="ProjetoProcessoId" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Titulo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DataEntrega" Type="datetime" Nullable="false" />
+    <Property Name="TipoDocumentoId" Type="int" Nullable="false" />
+    <Property Name="ProjetoId" Type="int" Nullable="false" />
+    <Property Name="ProjetoProcessoId" Type="int" Nullable="false" />
+    <Property Name="ParecerNumero" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProjetoSet">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="ProcessoId" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EstadoProjeto" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DataEntrada" Type="datetime" Nullable="false" />
+    <Property Name="DataAprovacao" Type="datetime" Nullable="false" />
+    <Property Name="TipoProjetoId" Type="int" Nullable="false" />
+    <Property Name="ProcessoId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoProjetoSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NrDiasAprovacao" Type="int" Nullable="false" />
+    <Property Name="TipoProjetoId" Type="int" Nullable="true" />
+    <Property Name="Designacao" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ParecerSet">
+    <Key>
+      <PropertyRef Name="Numero" />
+    </Key>
+    <Property Name="Numero" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TextoParecer" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DataParecer" Type="datetime" Nullable="false" />
+    <Property Name="ProjetoId" Type="int" Nullable="false" />
+    <Property Name="ProjetoProcessoId" Type="int" Nullable="false" />
+    <Property Name="FuncionarioNumero" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FuncionarioSet">
+    <Key>
+      <PropertyRef Name="Numero" />
+    </Key>
+    <Property Name="Numero" Type="int" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Extencao" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EspecialistaSet">
+    <Key>
+      <PropertyRef Name="TipoProjetoId" />
+      <PropertyRef Name="FuncionarioNumero1" />
+    </Key>
+    <Property Name="TipoProjetoId" Type="int" Nullable="false" />
+    <Property Name="FuncionarioNumero1" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProjetoAtribuidoSet">
+    <Key>
+      <PropertyRef Name="ProjetoId" />
+      <PropertyRef Name="ProjetoProcessoId" />
+    </Key>
+    <Property Name="Data" Type="datetime" Nullable="false" />
+    <Property Name="ProjetoId" Type="int" Nullable="false" />
+    <Property Name="ProjetoProcessoId" Type="int" Nullable="false" />
+    <Property Name="FuncionarioNumero" Type="int" Nullable="false" />
+    <Property Name="Projeto_Id" Type="int" Nullable="false" />
+    <Property Name="Projeto_ProcessoId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="TipoDocumentoDocumento">
+    <End Role="TipoDocumento" Type="GestaoCamaraMunicipal.Store.TipoDocumentoSet" Multiplicity="1" />
+    <End Role="Documento" Type="GestaoCamaraMunicipal.Store.DocumentoSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoDocumento">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Documento">
+        <PropertyRef Name="TipoDocumentoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PromotorProcesso">
+    <End Role="Promotor" Type="GestaoCamaraMunicipal.Store.PromotorSet" Multiplicity="1" />
+    <End Role="Processo" Type="GestaoCamaraMunicipal.Store.ProcessoSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Promotor">
+        <PropertyRef Name="NIF" />
+      </Principal>
+      <Dependent Role="Processo">
+        <PropertyRef Name="PromotorNIF" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EstadoProcessoProcesso">
+    <End Role="EstadoProcesso" Type="GestaoCamaraMunicipal.Store.EstadoProcessoSet" Multiplicity="1" />
+    <End Role="Processo" Type="GestaoCamaraMunicipal.Store.ProcessoSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EstadoProcesso">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Processo">
+        <PropertyRef Name="EstadoProcessoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TipoProjetoProjeto">
+    <End Role="TipoProjeto" Type="GestaoCamaraMunicipal.Store.TipoProjetoSet" Multiplicity="1" />
+    <End Role="Projeto" Type="GestaoCamaraMunicipal.Store.ProjetoSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoProjeto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Projeto">
+        <PropertyRef Name="TipoProjetoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProcessoProjeto">
+    <End Role="Processo" Type="GestaoCamaraMunicipal.Store.ProcessoSet" Multiplicity="1" />
+    <End Role="Projeto" Type="GestaoCamaraMunicipal.Store.ProjetoSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Processo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Projeto">
+        <PropertyRef Name="ProcessoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProjetoDocumento">
+    <End Role="Projeto" Type="GestaoCamaraMunicipal.Store.ProjetoSet" Multiplicity="1" />
+    <End Role="Documento" Type="GestaoCamaraMunicipal.Store.DocumentoSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Projeto">
+        <PropertyRef Name="Id" />
+        <PropertyRef Name="ProcessoId" />
+      </Principal>
+      <Dependent Role="Documento">
+        <PropertyRef Name="ProjetoId" />
+        <PropertyRef Name="ProjetoProcessoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProjetoParecer">
+    <End Role="Projeto" Type="GestaoCamaraMunicipal.Store.ProjetoSet" Multiplicity="1" />
+    <End Role="Parecer" Type="GestaoCamaraMunicipal.Store.ParecerSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Projeto">
+        <PropertyRef Name="Id" />
+        <PropertyRef Name="ProcessoId" />
+      </Principal>
+      <Dependent Role="Parecer">
+        <PropertyRef Name="ProjetoId" />
+        <PropertyRef Name="ProjetoProcessoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProjetoProjetoAtribuido">
+    <End Role="Projeto" Type="GestaoCamaraMunicipal.Store.ProjetoSet" Multiplicity="1" />
+    <End Role="ProjetoAtribuido" Type="GestaoCamaraMunicipal.Store.ProjetoAtribuidoSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Projeto">
+        <PropertyRef Name="Id" />
+        <PropertyRef Name="ProcessoId" />
+      </Principal>
+      <Dependent Role="ProjetoAtribuido">
+        <PropertyRef Name="Projeto_Id" />
+        <PropertyRef Name="Projeto_ProcessoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FuncionarioParecer">
+    <End Role="Funcionario" Type="GestaoCamaraMunicipal.Store.FuncionarioSet" Multiplicity="1" />
+    <End Role="Parecer" Type="GestaoCamaraMunicipal.Store.ParecerSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Funcionario">
+        <PropertyRef Name="Numero" />
+      </Principal>
+      <Dependent Role="Parecer">
+        <PropertyRef Name="FuncionarioNumero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FuncionarioEspecialista">
+    <End Role="Funcionario" Type="GestaoCamaraMunicipal.Store.FuncionarioSet" Multiplicity="1" />
+    <End Role="Especialista" Type="GestaoCamaraMunicipal.Store.EspecialistaSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Funcionario">
+        <PropertyRef Name="Numero" />
+      </Principal>
+      <Dependent Role="Especialista">
+        <PropertyRef Name="FuncionarioNumero1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FuncionarioProjetoAtribuido">
+    <End Role="Funcionario" Type="GestaoCamaraMunicipal.Store.FuncionarioSet" Multiplicity="1" />
+    <End Role="ProjetoAtribuido" Type="GestaoCamaraMunicipal.Store.ProjetoAtribuidoSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Funcionario">
+        <PropertyRef Name="Numero" />
+      </Principal>
+      <Dependent Role="ProjetoAtribuido">
+        <PropertyRef Name="FuncionarioNumero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TipoProjetoEspecialista">
+    <End Role="TipoProjeto" Type="GestaoCamaraMunicipal.Store.TipoProjetoSet" Multiplicity="1" />
+    <End Role="Especialista" Type="GestaoCamaraMunicipal.Store.EspecialistaSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoProjeto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Especialista">
+        <PropertyRef Name="TipoProjetoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

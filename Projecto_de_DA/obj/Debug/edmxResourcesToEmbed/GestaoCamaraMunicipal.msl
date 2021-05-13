@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="GestaoCamaraMunicipalStoreContainer" CdmEntityContainer="GestaoCamaraMunicipalContainer">
+    <EntitySetMapping Name="TipoDocumentoSet">
+      <EntityTypeMapping TypeName="IsTypeOf(GestaoCamaraMunicipal.TipoDocumento)">
+        <MappingFragment StoreEntitySet="TipoDocumentoSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Designacao" ColumnName="Designacao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PromotorSet">
+      <EntityTypeMapping TypeName="IsTypeOf(GestaoCamaraMunicipal.Promotor)">
+        <MappingFragment StoreEntitySet="PromotorSet">
+          <ScalarProperty Name="NIF" ColumnName="NIF" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Morada" ColumnName="Morada" />
+          <ScalarProperty Name="Telemovel" ColumnName="Telemovel" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="CodigoAcesso" ColumnName="CodigoAcesso" />
+          <ScalarProperty Name="Senha" ColumnName="Senha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProcessoSet">
+      <EntityTypeMapping TypeName="IsTypeOf(GestaoCamaraMunicipal.Processo)">
+        <MappingFragment StoreEntitySet="ProcessoSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DataInicio" ColumnName="DataInicio" />
+          <ScalarProperty Name="PromotorNIF" ColumnName="PromotorNIF" />
+          <ScalarProperty Name="EstadoProcessoId" ColumnName="EstadoProcessoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EstadoProcessoSet">
+      <EntityTypeMapping TypeName="IsTypeOf(GestaoCamaraMunicipal.EstadoProcesso)">
+        <MappingFragment StoreEntitySet="EstadoProcessoSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DescricaoEstado" ColumnName="DescricaoEstado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DocumentoSet">
+      <EntityTypeMapping TypeName="IsTypeOf(GestaoCamaraMunicipal.Documento)">
+        <MappingFragment StoreEntitySet="DocumentoSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ProjetoId" ColumnName="ProjetoId" />
+          <ScalarProperty Name="ProjetoProcessoId" ColumnName="ProjetoProcessoId" />
+          <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+          <ScalarProperty Name="DataEntrega" ColumnName="DataEntrega" />
+          <ScalarProperty Name="TipoDocumentoId" ColumnName="TipoDocumentoId" />
+          <ScalarProperty Name="ParecerNumero" ColumnName="ParecerNumero" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProjetoSet">
+      <EntityTypeMapping TypeName="IsTypeOf(GestaoCamaraMunicipal.Projeto)">
+        <MappingFragment StoreEntitySet="ProjetoSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ProcessoId" ColumnName="ProcessoId" />
+          <ScalarProperty Name="EstadoProjeto" ColumnName="EstadoProjeto" />
+          <ScalarProperty Name="DataEntrada" ColumnName="DataEntrada" />
+          <ScalarProperty Name="DataAprovacao" ColumnName="DataAprovacao" />
+          <ScalarProperty Name="TipoProjetoId" ColumnName="TipoProjetoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoProjetoSet">
+      <EntityTypeMapping TypeName="IsTypeOf(GestaoCamaraMunicipal.TipoProjeto)">
+        <MappingFragment StoreEntitySet="TipoProjetoSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NrDiasAprovacao" ColumnName="NrDiasAprovacao" />
+          <ScalarProperty Name="TipoProjetoId" ColumnName="TipoProjetoId" />
+          <ScalarProperty Name="Designacao" ColumnName="Designacao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ParecerSet">
+      <EntityTypeMapping TypeName="IsTypeOf(GestaoCamaraMunicipal.Parecer)">
+        <MappingFragment StoreEntitySet="ParecerSet">
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+          <ScalarProperty Name="TextoParecer" ColumnName="TextoParecer" />
+          <ScalarProperty Name="DataParecer" ColumnName="DataParecer" />
+          <ScalarProperty Name="ProjetoId" ColumnName="ProjetoId" />
+          <ScalarProperty Name="ProjetoProcessoId" ColumnName="ProjetoProcessoId" />
+          <ScalarProperty Name="FuncionarioNumero" ColumnName="FuncionarioNumero" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FuncionarioSet">
+      <EntityTypeMapping TypeName="IsTypeOf(GestaoCamaraMunicipal.Funcionario)">
+        <MappingFragment StoreEntitySet="FuncionarioSet">
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Extencao" ColumnName="Extencao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EspecialistaSet">
+      <EntityTypeMapping TypeName="IsTypeOf(GestaoCamaraMunicipal.Especialista)">
+        <MappingFragment StoreEntitySet="EspecialistaSet">
+          <ScalarProperty Name="TipoProjetoId" ColumnName="TipoProjetoId" />
+          <ScalarProperty Name="FuncionarioNumero1" ColumnName="FuncionarioNumero1" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProjetoAtribuidoSet">
+      <EntityTypeMapping TypeName="IsTypeOf(GestaoCamaraMunicipal.ProjetoAtribuido)">
+        <MappingFragment StoreEntitySet="ProjetoAtribuidoSet">
+          <ScalarProperty Name="ProjetoId" ColumnName="ProjetoId" />
+          <ScalarProperty Name="ProjetoProcessoId" ColumnName="ProjetoProcessoId" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ScalarProperty Name="FuncionarioNumero" ColumnName="FuncionarioNumero" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ProjetoProjetoAtribuido" TypeName="GestaoCamaraMunicipal.ProjetoProjetoAtribuido" StoreEntitySet="ProjetoAtribuidoSet">
+      <EndProperty Name="Projeto">
+        <ScalarProperty Name="Id" ColumnName="Projeto_Id" />
+        <ScalarProperty Name="ProcessoId" ColumnName="Projeto_ProcessoId" />
+      </EndProperty>
+      <EndProperty Name="ProjetoAtribuido">
+        <ScalarProperty Name="ProjetoId" ColumnName="ProjetoId" />
+        <ScalarProperty Name="ProjetoProcessoId" ColumnName="ProjetoProcessoId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>
