@@ -23,8 +23,9 @@ namespace Projecto_de_DA
 
         private void lerDados()
         {
+            
             bsPromotores.DataSource = camara.PromotorSet.ToList<Promotor>();
-            listBox1.DataSource = bsPromotores;
+            bsPromotores.ResetBindings(false);
             listBox1.SelectedIndex = -1;
         }
 
@@ -55,12 +56,25 @@ namespace Projecto_de_DA
                 tbxTelemovelPromotor.Text = "";
                 tbxCodigoAcessoPromotor.Text = "";
                 tbxSenhaPromotor.Text = "";
+
+                //alterar o text do botão Adicionar
+                btnAdicionar.Text = "Adicionar";
             }
             else 
             {
-                camara.PromotorSet.Add(new Promotor(Convert.ToInt32(tbxNIFPromotor.Text), tbxNomePromotor.Text, tbxMoradaPromotor.Text, tbxTelemovelPromotor.Text, tbxEmailPromotor.Text, tbxCodigoAcessoPromotor.Text, tbxSenhaPromotor.Text));
-                camara.SaveChanges();
-                lerDados();
+               try
+               {
+                    camara.PromotorSet.Add(new Promotor(Convert.ToInt32(tbxNIFPromotor.Text), tbxNomePromotor.Text, tbxMoradaPromotor.Text, tbxTelemovelPromotor.Text, tbxEmailPromotor.Text, tbxCodigoAcessoPromotor.Text, tbxSenhaPromotor.Text));
+                    camara.SaveChanges();
+                    lerDados();
+                }
+                catch(Exception ex)
+                {
+                    tbxNIFPromotor.Text = "";
+                    MessageBox.Show("O número de Contribuinte inserido ja foi adicionado anteriormente" + ex, "NIF INVÁLIDO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                
+               
             }
         }
 
@@ -96,6 +110,11 @@ namespace Projecto_de_DA
                 //torna a propriedade UseSystemPassordChar on
                 tbxCodigoAcessoPromotor.UseSystemPasswordChar = true;
                 tbxSenhaPromotor.UseSystemPasswordChar = true;
+
+                //alterar o text do botão adicionar
+                btnAdicionar.Text = "Limpar Dados";
+                //lerDados();
+                //amara.Dispose();
             }
             else 
             {
@@ -123,6 +142,11 @@ namespace Projecto_de_DA
                 //torna a propriedade UseSystemPassordChar off
                 tbxCodigoAcessoPromotor.UseSystemPasswordChar = false;
                 tbxSenhaPromotor.UseSystemPasswordChar = false;
+
+                //alterar o text do botão adicionar
+                btnAdicionar.Text = "Adicionar";
+                //lerDados();
+                //camara.Dispose();
 
 
             }
@@ -152,6 +176,12 @@ namespace Projecto_de_DA
                 //torna a propriedade UseSystemPassordChar off
                 tbxCodigoAcessoPromotor.UseSystemPasswordChar = false;
                 tbxSenhaPromotor.UseSystemPasswordChar = false;
+
+                //bloqueia a propriedade de adicionar ou remover caso o botão desbloquear seja pressionado
+                btnAdicionar.Enabled = false;
+                btnEliminar.Enabled = false;
+
+                //camara.Dispose();
             }
             //else
             //{
@@ -177,6 +207,42 @@ namespace Projecto_de_DA
             camara.PromotorSet.Remove((Promotor)listBox1.SelectedItem);
             camara.SaveChanges();
             lerDados();
+            //camara.Dispose();
+        }
+
+        private void btnAtualizar_Click(object sender, EventArgs e)
+        {
+            btnDesbloquear.BackgroundImage = Properties.Resources.unlock;
+
+            //Torna as textboxes possiveis de se escrever
+            tbxNomePromotor.ReadOnly = false;
+            tbxNIFPromotor.ReadOnly = false;
+            tbxMoradaPromotor.ReadOnly = false;
+            tbxEmailPromotor.ReadOnly = false;
+            tbxTelemovelPromotor.ReadOnly = false;
+            tbxCodigoAcessoPromotor.ReadOnly = false;
+            tbxSenhaPromotor.ReadOnly = false;
+
+            //torna a propriedade UseSystemPassordChar off
+            tbxCodigoAcessoPromotor.UseSystemPasswordChar = false;
+            tbxSenhaPromotor.UseSystemPasswordChar = false;
+
+            //preencher as textboxes com os valores nulos
+            tbxNomePromotor.Text = "";
+            tbxNIFPromotor.Text = "";
+            tbxMoradaPromotor.Text = "";
+            tbxEmailPromotor.Text = "";
+            tbxTelemovelPromotor.Text = "";
+            tbxCodigoAcessoPromotor.Text = "";
+            tbxSenhaPromotor.Text = "";
+
+
+            btnAdicionar.Enabled = true;
+            btnEliminar.Enabled = true;
+
+            lerDados();
+
+            //camara.Dispose();
         }
     }
 }

@@ -58,6 +58,7 @@ namespace Projecto_de_DA
             // 
             // listBox1
             // 
+            this.listBox1.DataSource = this.bsPromotores;
             this.listBox1.FormattingEnabled = true;
             this.listBox1.Location = new System.Drawing.Point(12, 34);
             this.listBox1.Name = "listBox1";
@@ -228,6 +229,7 @@ namespace Projecto_de_DA
             this.btnAtualizar.TabIndex = 19;
             this.btnAtualizar.Text = "Atualizar Dados";
             this.btnAtualizar.UseVisualStyleBackColor = true;
+            this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
             // 
             // btnDesbloquear
             // 
