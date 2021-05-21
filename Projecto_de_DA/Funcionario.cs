@@ -23,7 +23,11 @@ namespace Projecto_de_DA
         }
     
         public int Numero { get; set; }
+        public int NIF { get; }
         public string Nome { get; set; }
+        public string Morada { get; }
+        public string Telemovel { get; }
+        public string Email { get; }
         public string Extencao { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

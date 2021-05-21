@@ -72,6 +72,13 @@
     <Compile Include="Funcionario.cs">
       <DependentUpon>GestaoCamaraMunicipal.tt</DependentUpon>
     </Compile>
+    <Compile Include="Funcionario_Class.cs" />
+    <Compile Include="Funcionários.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Funcionários.Designer.cs">
+      <DependentUpon>Funcionários.cs</DependentUpon>
+    </Compile>
     <Compile Include="GestaoCamaraMunicipal.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -89,6 +96,12 @@
     </Compile>
     <Compile Include="Parecer.cs">
       <DependentUpon>GestaoCamaraMunicipal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pareceres.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pareceres.Designer.cs">
+      <DependentUpon>Pareceres.cs</DependentUpon>
     </Compile>
     <Compile Include="Processo.cs">
       <DependentUpon>GestaoCamaraMunicipal.tt</DependentUpon>
@@ -118,6 +131,12 @@
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Funcionários.resx">
+      <DependentUpon>Funcionários.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pareceres.resx">
+      <DependentUpon>Pareceres.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Promotores.resx">
       <DependentUpon>Promotores.cs</DependentUpon>

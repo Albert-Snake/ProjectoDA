@@ -16,5 +16,10 @@ namespace Projecto_de_DA
         {
             InitializeComponent();
         }
+
+        private void labe_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
