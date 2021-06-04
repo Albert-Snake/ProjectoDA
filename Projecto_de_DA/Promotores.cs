@@ -166,7 +166,7 @@ namespace Projecto_de_DA
 
                 //Torna as textboxes possiveis de se escrever
                 tbxNomePromotor.ReadOnly = false;
-                tbxNIFPromotor.ReadOnly = false;
+                //tbxNIFPromotor.ReadOnly = false;
                 tbxMoradaPromotor.ReadOnly = false;
                 tbxEmailPromotor.ReadOnly = false;
                 tbxTelemovelPromotor.ReadOnly = false;
@@ -204,15 +204,27 @@ namespace Projecto_de_DA
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            camara.PromotorSet.Remove((Promotor)listBox1.SelectedItem);
-            camara.SaveChanges();
-            lerDados();
-            //camara.Dispose();
+            if (listBox1.SelectedIndex > -1)
+            {
+                camara.PromotorSet.Remove((Promotor)listBox1.SelectedItem);
+                camara.SaveChanges();
+                lerDados();
+                //camara.Dispose();
+            }
+
         }
 
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
             btnDesbloquear.BackgroundImage = Properties.Resources.unlock;
+            Promotor promotor = (Promotor)listBox1.SelectedItem;
+            promotor.Nome = tbxNomePromotor.Text;
+            promotor.Morada = tbxMoradaPromotor.Text;
+            promotor.Telemovel = tbxTelemovelPromotor.Text;
+            promotor.CodigoAcesso = tbxCodigoAcessoPromotor.Text;
+            promotor.Email = tbxEmailPromotor.Text;
+            promotor.Senha = tbxSenhaPromotor.Text;
+            camara.SaveChanges();
 
             //Torna as textboxes possiveis de se escrever
             tbxNomePromotor.ReadOnly = false;

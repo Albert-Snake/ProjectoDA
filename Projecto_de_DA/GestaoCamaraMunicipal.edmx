@@ -810,7 +810,7 @@
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="6a77f44fbff747de9cc83379ad7391a5" Name="Diagram1" ZoomLevel="74">
+      <Diagram DiagramId="6a77f44fbff747de9cc83379ad7391a5" Name="Diagram1" ZoomLevel="97">
         <EntityTypeShape EntityType="GestaoCamaraMunicipal.TipoDocumento" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
         <EntityTypeShape EntityType="GestaoCamaraMunicipal.Promotor" Width="1.5" PointX="1.5" PointY="12.125" IsExpanded="true" />
         <EntityTypeShape EntityType="GestaoCamaraMunicipal.Processo" Width="1.5" PointX="0.75" PointY="2.625" IsExpanded="true" />

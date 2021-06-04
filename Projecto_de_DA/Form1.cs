@@ -32,5 +32,15 @@ namespace Projecto_de_DA
             myForm.BringToFront();
             myForm.Show();
         }
+
+        private void gestãoDeFuncionariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formFuncionarios myForm = new formFuncionarios();
+            myForm.TopLevel = false;
+            myForm.AutoScroll = true;
+            panel2.Controls.Add(myForm);
+            myForm.BringToFront();
+            myForm.Show();
+        }
     }
 }

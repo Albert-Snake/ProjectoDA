@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="classeFuncionarios.cs" />
     <Compile Include="classePromotor.cs" />
     <Compile Include="Documento.cs">
       <DependentUpon>GestaoCamaraMunicipal.tt</DependentUpon>
@@ -68,6 +69,24 @@
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formFuncionarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formFuncionarios.Designer.cs">
+      <DependentUpon>formFuncionarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formPareceres.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formPareceres.Designer.cs">
+      <DependentUpon>formPareceres.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formProjectos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formProjectos.Designer.cs">
+      <DependentUpon>formProjectos.cs</DependentUpon>
     </Compile>
     <Compile Include="Funcionario.cs">
       <DependentUpon>GestaoCamaraMunicipal.tt</DependentUpon>
@@ -118,6 +137,12 @@
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formFuncionarios.resx">
+      <DependentUpon>formFuncionarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formProjectos.resx">
+      <DependentUpon>formProjectos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Promotores.resx">
       <DependentUpon>Promotores.cs</DependentUpon>

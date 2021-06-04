@@ -34,6 +34,7 @@ namespace Projecto_de_DA
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestãoDePromotoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestãoDeProcessosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gestaoDeProjectosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestãoDePareceresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestãoDeFuncionariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.terminarSessãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,7 +42,6 @@ namespace Projecto_de_DA
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.gestaoDeProjectosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -90,6 +90,14 @@ namespace Projecto_de_DA
             this.gestãoDeProcessosToolStripMenuItem.Size = new System.Drawing.Size(241, 24);
             this.gestãoDeProcessosToolStripMenuItem.Text = "Gestão de Processos";
             // 
+            // gestaoDeProjectosToolStripMenuItem
+            // 
+            this.gestaoDeProjectosToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(73)))), ((int)(((byte)(114)))));
+            this.gestaoDeProjectosToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.gestaoDeProjectosToolStripMenuItem.Name = "gestaoDeProjectosToolStripMenuItem";
+            this.gestaoDeProjectosToolStripMenuItem.Size = new System.Drawing.Size(241, 24);
+            this.gestaoDeProjectosToolStripMenuItem.Text = "Gestao de Projectos";
+            // 
             // gestãoDePareceresToolStripMenuItem
             // 
             this.gestãoDePareceresToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(73)))), ((int)(((byte)(114)))));
@@ -105,6 +113,7 @@ namespace Projecto_de_DA
             this.gestãoDeFuncionariosToolStripMenuItem.Name = "gestãoDeFuncionariosToolStripMenuItem";
             this.gestãoDeFuncionariosToolStripMenuItem.Size = new System.Drawing.Size(241, 24);
             this.gestãoDeFuncionariosToolStripMenuItem.Text = "Gestão de Funcionarios";
+            this.gestãoDeFuncionariosToolStripMenuItem.Click += new System.EventHandler(this.gestãoDeFuncionariosToolStripMenuItem_Click);
             // 
             // terminarSessãoToolStripMenuItem
             // 
@@ -153,14 +162,6 @@ namespace Projecto_de_DA
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
-            // 
-            // gestaoDeProjectosToolStripMenuItem
-            // 
-            this.gestaoDeProjectosToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(73)))), ((int)(((byte)(114)))));
-            this.gestaoDeProjectosToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.gestaoDeProjectosToolStripMenuItem.Name = "gestaoDeProjectosToolStripMenuItem";
-            this.gestaoDeProjectosToolStripMenuItem.Size = new System.Drawing.Size(241, 24);
-            this.gestaoDeProjectosToolStripMenuItem.Text = "Gestao de Projectos";
             // 
             // Form1
             // 
