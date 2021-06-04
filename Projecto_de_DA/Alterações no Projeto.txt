@@ -1,0 +1,3 @@
+13/05/2021 - Alteração do design do Form Promotores, Adição de um botão com a imagem de um cadeado para ilustrar a disponibilidade de alteração dos valores dos campos databela Promotores apresentados no form.
+
+14/05/2021 - Alteração do codigo do desing fo form Promotores
