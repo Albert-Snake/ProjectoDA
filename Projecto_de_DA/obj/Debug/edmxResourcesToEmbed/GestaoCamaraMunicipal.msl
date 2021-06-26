@@ -49,7 +49,6 @@
           <ScalarProperty Name="Titulo" ColumnName="Titulo" />
           <ScalarProperty Name="DataEntrega" ColumnName="DataEntrega" />
           <ScalarProperty Name="TipoDocumentoId" ColumnName="TipoDocumentoId" />
-          <ScalarProperty Name="ParecerNumero" ColumnName="ParecerNumero" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -70,8 +69,8 @@
         <MappingFragment StoreEntitySet="TipoProjetoSet">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="NrDiasAprovacao" ColumnName="NrDiasAprovacao" />
-          <ScalarProperty Name="TipoProjetoId" ColumnName="TipoProjetoId" />
           <ScalarProperty Name="Designacao" ColumnName="Designacao" />
+          <ScalarProperty Name="TipoProjetoId" ColumnName="TipoProjetoId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

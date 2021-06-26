@@ -20,7 +20,6 @@ namespace Projecto_de_DA
         public int TipoDocumentoId { get; set; }
         public int ProjetoId { get; set; }
         public int ProjetoProcessoId { get; set; }
-        public int ParecerNumero { get; set; }
     
         public virtual TipoDocumento TipoDocumento { get; set; }
         public virtual Projeto Projeto { get; set; }

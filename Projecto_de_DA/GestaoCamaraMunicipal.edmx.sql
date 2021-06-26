@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 06/04/2021 10:33:46
--- Generated from EDMX file: D:\faculdade trabalhos\Desenvolvimento de Aplicaçoes\Trabalho de grupo\Projecto_de_DA\GestaoCamaraMunicipal.edmx
+-- Date Created: 06/24/2021 19:45:37
+-- Generated from EDMX file: C:\Users\Alberto\Documents\Projecto_de_DA\GestaoCamaraMunicipal.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -52,6 +52,9 @@ IF OBJECT_ID(N'[dbo].[FK_FuncionarioProjetoAtribuido]', 'F') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[FK_TipoProjetoEspecialista]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[EspecialistaSet] DROP CONSTRAINT [FK_TipoProjetoEspecialista];
+GO
+IF OBJECT_ID(N'[dbo].[FK_TipoProjetoTipoProjeto]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[TipoProjetoSet] DROP CONSTRAINT [FK_TipoProjetoTipoProjeto];
 GO
 
 -- --------------------------------------------------
@@ -138,8 +141,7 @@ CREATE TABLE [dbo].[DocumentoSet] (
     [DataEntrega] datetime  NOT NULL,
     [TipoDocumentoId] int  NOT NULL,
     [ProjetoId] int  NOT NULL,
-    [ProjetoProcessoId] int  NOT NULL,
-    [ParecerNumero] int  NOT NULL
+    [ProjetoProcessoId] int  NOT NULL
 );
 GO
 
@@ -158,8 +160,8 @@ GO
 CREATE TABLE [dbo].[TipoProjetoSet] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [NrDiasAprovacao] int  NOT NULL,
-    [TipoProjetoId] int  NULL,
-    [Designacao] nvarchar(max)  NOT NULL
+    [Designacao] nvarchar(max)  NOT NULL,
+    [TipoProjetoId] int  NULL
 );
 GO
 
@@ -446,6 +448,21 @@ ADD CONSTRAINT [FK_TipoProjetoEspecialista]
     REFERENCES [dbo].[TipoProjetoSet]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating foreign key on [TipoProjetoId] in table 'TipoProjetoSet'
+ALTER TABLE [dbo].[TipoProjetoSet]
+ADD CONSTRAINT [FK_TipoProjetoTipoProjeto]
+    FOREIGN KEY ([TipoProjetoId])
+    REFERENCES [dbo].[TipoProjetoSet]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_TipoProjetoTipoProjeto'
+CREATE INDEX [IX_FK_TipoProjetoTipoProjeto]
+ON [dbo].[TipoProjetoSet]
+    ([TipoProjetoId]);
 GO
 
 -- --------------------------------------------------

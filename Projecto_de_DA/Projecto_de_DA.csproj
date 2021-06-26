@@ -12,6 +12,22 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\Alberto\Desktop\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -31,6 +47,24 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>47C16FB8424FFDB7EDF0D93C4EF2321037B7E4AB</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Projecto_de_DA_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -53,7 +87,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="classeAtribuirProjeto.cs" />
+    <Compile Include="classeDocumentos.cs" />
+    <Compile Include="classeEstadoProcesso.cs" />
+    <Compile Include="classeFuncionarios.cs" />
+    <Compile Include="classePareceres.cs" />
+    <Compile Include="classeProcesso.cs" />
+    <Compile Include="classeProjeto.cs" />
     <Compile Include="classePromotor.cs" />
+    <Compile Include="classEspecialista.cs" />
+    <Compile Include="classeTipoDocumento.cs" />
+    <Compile Include="classTipoProjecto.cs" />
     <Compile Include="Documento.cs">
       <DependentUpon>GestaoCamaraMunicipal.tt</DependentUpon>
     </Compile>
@@ -68,6 +112,66 @@
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formDocumentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formDocumentos.Designer.cs">
+      <DependentUpon>formDocumentos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formEspecialista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formEspecialista.Designer.cs">
+      <DependentUpon>formEspecialista.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formFuncionarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formFuncionarios.Designer.cs">
+      <DependentUpon>formFuncionarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formPareceres.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formPareceres.Designer.cs">
+      <DependentUpon>formPareceres.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formProcessos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formProcessos.Designer.cs">
+      <DependentUpon>formProcessos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formProjectoAtribuido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formProjectoAtribuido.Designer.cs">
+      <DependentUpon>formProjectoAtribuido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formProjectos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formProjectos.Designer.cs">
+      <DependentUpon>formProjectos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formTipoDocumento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formTipoDocumento.Designer.cs">
+      <DependentUpon>formTipoDocumento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formTipoProcessos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formTipoProcessos.Designer.cs">
+      <DependentUpon>formTipoProcessos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formTipoProjecto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formTipoProjecto.Designer.cs">
+      <DependentUpon>formTipoProjecto.cs</DependentUpon>
     </Compile>
     <Compile Include="Funcionario.cs">
       <DependentUpon>GestaoCamaraMunicipal.tt</DependentUpon>
@@ -119,6 +223,36 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="formDocumentos.resx">
+      <DependentUpon>formDocumentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formEspecialista.resx">
+      <DependentUpon>formEspecialista.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formFuncionarios.resx">
+      <DependentUpon>formFuncionarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formPareceres.resx">
+      <DependentUpon>formPareceres.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formProcessos.resx">
+      <DependentUpon>formProcessos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formProjectoAtribuido.resx">
+      <DependentUpon>formProjectoAtribuido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formProjectos.resx">
+      <DependentUpon>formProjectos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formTipoDocumento.resx">
+      <DependentUpon>formTipoDocumento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formTipoProcessos.resx">
+      <DependentUpon>formTipoProcessos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formTipoProjecto.resx">
+      <DependentUpon>formTipoProjecto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Promotores.resx">
       <DependentUpon>Promotores.cs</DependentUpon>
     </EmbeddedResource>
@@ -130,12 +264,15 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EntityDeploy Include="GestaoCamaraMunicipal.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>GestaoCamaraMunicipal.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <None Include="packages.config" />
+    <None Include="Projecto_de_DA_TemporaryKey.pfx" />
+    <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -161,9 +298,23 @@
       <LastGenOutput>GestaoCamaraMunicipal.cs</LastGenOutput>
       <DependentUpon>GestaoCamaraMunicipal.edmx</DependentUpon>
     </Content>
+    <None Include="ImagensRecource\unlock.png" />
+    <None Include="ImagensRecource\lock.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 e x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

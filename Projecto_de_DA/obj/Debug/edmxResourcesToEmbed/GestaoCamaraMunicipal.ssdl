@@ -60,6 +60,10 @@
       <End Role="TipoProjeto" EntitySet="TipoProjetoSet" />
       <End Role="Especialista" EntitySet="EspecialistaSet" />
     </AssociationSet>
+    <AssociationSet Name="TipoProjetoTipoProjeto" Association="GestaoCamaraMunicipal.Store.TipoProjetoTipoProjeto">
+      <End Role="TipoProjeto" EntitySet="TipoProjetoSet" />
+      <End Role="TipoProjeto1" EntitySet="TipoProjetoSet" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="TipoDocumentoSet">
     <Key>
@@ -108,7 +112,6 @@
     <Property Name="TipoDocumentoId" Type="int" Nullable="false" />
     <Property Name="ProjetoId" Type="int" Nullable="false" />
     <Property Name="ProjetoProcessoId" Type="int" Nullable="false" />
-    <Property Name="ParecerNumero" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="ProjetoSet">
     <Key>
@@ -128,8 +131,8 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="NrDiasAprovacao" Type="int" Nullable="false" />
-    <Property Name="TipoProjetoId" Type="int" Nullable="true" />
     <Property Name="Designacao" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TipoProjetoId" Type="int" Nullable="true" />
   </EntityType>
   <EntityType Name="ParecerSet">
     <Key>
@@ -316,6 +319,18 @@
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Especialista">
+        <PropertyRef Name="TipoProjetoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TipoProjetoTipoProjeto">
+    <End Role="TipoProjeto" Type="GestaoCamaraMunicipal.Store.TipoProjetoSet" Multiplicity="0..1" />
+    <End Role="TipoProjeto1" Type="GestaoCamaraMunicipal.Store.TipoProjetoSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoProjeto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TipoProjeto1">
         <PropertyRef Name="TipoProjetoId" />
       </Dependent>
     </ReferentialConstraint>

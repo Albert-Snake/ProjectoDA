@@ -37,11 +37,18 @@ namespace Projecto_de_DA
             this.gestaoDeProjectosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestãoDePareceresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestãoDeFuncionariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.maisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tiposDeDocumentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.documentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tiposProcessoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tiposDeProjectosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.terminarSessãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.especialistasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.atribuirProjectosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -66,6 +73,7 @@ namespace Projecto_de_DA
             this.gestaoDeProjectosToolStripMenuItem,
             this.gestãoDePareceresToolStripMenuItem,
             this.gestãoDeFuncionariosToolStripMenuItem,
+            this.maisToolStripMenuItem,
             this.terminarSessãoToolStripMenuItem});
             this.menuToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLight;
@@ -89,6 +97,7 @@ namespace Projecto_de_DA
             this.gestãoDeProcessosToolStripMenuItem.Name = "gestãoDeProcessosToolStripMenuItem";
             this.gestãoDeProcessosToolStripMenuItem.Size = new System.Drawing.Size(241, 24);
             this.gestãoDeProcessosToolStripMenuItem.Text = "Gestão de Processos";
+            this.gestãoDeProcessosToolStripMenuItem.Click += new System.EventHandler(this.gestãoDeProcessosToolStripMenuItem_Click);
             // 
             // gestaoDeProjectosToolStripMenuItem
             // 
@@ -97,6 +106,7 @@ namespace Projecto_de_DA
             this.gestaoDeProjectosToolStripMenuItem.Name = "gestaoDeProjectosToolStripMenuItem";
             this.gestaoDeProjectosToolStripMenuItem.Size = new System.Drawing.Size(241, 24);
             this.gestaoDeProjectosToolStripMenuItem.Text = "Gestao de Projectos";
+            this.gestaoDeProjectosToolStripMenuItem.Click += new System.EventHandler(this.gestaoDeProjectosToolStripMenuItem_Click);
             // 
             // gestãoDePareceresToolStripMenuItem
             // 
@@ -105,6 +115,7 @@ namespace Projecto_de_DA
             this.gestãoDePareceresToolStripMenuItem.Name = "gestãoDePareceresToolStripMenuItem";
             this.gestãoDePareceresToolStripMenuItem.Size = new System.Drawing.Size(241, 24);
             this.gestãoDePareceresToolStripMenuItem.Text = "Gestão de Pareceres";
+            this.gestãoDePareceresToolStripMenuItem.Click += new System.EventHandler(this.gestãoDePareceresToolStripMenuItem_Click);
             // 
             // gestãoDeFuncionariosToolStripMenuItem
             // 
@@ -114,6 +125,47 @@ namespace Projecto_de_DA
             this.gestãoDeFuncionariosToolStripMenuItem.Size = new System.Drawing.Size(241, 24);
             this.gestãoDeFuncionariosToolStripMenuItem.Text = "Gestão de Funcionarios";
             this.gestãoDeFuncionariosToolStripMenuItem.Click += new System.EventHandler(this.gestãoDeFuncionariosToolStripMenuItem_Click);
+            // 
+            // maisToolStripMenuItem
+            // 
+            this.maisToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tiposDeDocumentosToolStripMenuItem,
+            this.documentosToolStripMenuItem,
+            this.tiposProcessoToolStripMenuItem,
+            this.tiposDeProjectosToolStripMenuItem,
+            this.especialistasToolStripMenuItem,
+            this.atribuirProjectosToolStripMenuItem});
+            this.maisToolStripMenuItem.Name = "maisToolStripMenuItem";
+            this.maisToolStripMenuItem.Size = new System.Drawing.Size(241, 24);
+            this.maisToolStripMenuItem.Text = "Mais";
+            // 
+            // tiposDeDocumentosToolStripMenuItem
+            // 
+            this.tiposDeDocumentosToolStripMenuItem.Name = "tiposDeDocumentosToolStripMenuItem";
+            this.tiposDeDocumentosToolStripMenuItem.Size = new System.Drawing.Size(230, 24);
+            this.tiposDeDocumentosToolStripMenuItem.Text = "Tipos de Documentos";
+            this.tiposDeDocumentosToolStripMenuItem.Click += new System.EventHandler(this.tiposDeDocumentosToolStripMenuItem_Click);
+            // 
+            // documentosToolStripMenuItem
+            // 
+            this.documentosToolStripMenuItem.Name = "documentosToolStripMenuItem";
+            this.documentosToolStripMenuItem.Size = new System.Drawing.Size(230, 24);
+            this.documentosToolStripMenuItem.Text = "Gerir Documentos";
+            this.documentosToolStripMenuItem.Click += new System.EventHandler(this.documentosToolStripMenuItem_Click);
+            // 
+            // tiposProcessoToolStripMenuItem
+            // 
+            this.tiposProcessoToolStripMenuItem.Name = "tiposProcessoToolStripMenuItem";
+            this.tiposProcessoToolStripMenuItem.Size = new System.Drawing.Size(230, 24);
+            this.tiposProcessoToolStripMenuItem.Text = "Estados Processo";
+            this.tiposProcessoToolStripMenuItem.Click += new System.EventHandler(this.tiposProcessoToolStripMenuItem_Click);
+            // 
+            // tiposDeProjectosToolStripMenuItem
+            // 
+            this.tiposDeProjectosToolStripMenuItem.Name = "tiposDeProjectosToolStripMenuItem";
+            this.tiposDeProjectosToolStripMenuItem.Size = new System.Drawing.Size(230, 24);
+            this.tiposDeProjectosToolStripMenuItem.Text = "Tipos de Projectos";
+            this.tiposDeProjectosToolStripMenuItem.Click += new System.EventHandler(this.tiposDeProjectosToolStripMenuItem_Click);
             // 
             // terminarSessãoToolStripMenuItem
             // 
@@ -163,6 +215,20 @@ namespace Projecto_de_DA
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
+            // especialistasToolStripMenuItem
+            // 
+            this.especialistasToolStripMenuItem.Name = "especialistasToolStripMenuItem";
+            this.especialistasToolStripMenuItem.Size = new System.Drawing.Size(230, 24);
+            this.especialistasToolStripMenuItem.Text = "Especialistas";
+            this.especialistasToolStripMenuItem.Click += new System.EventHandler(this.especialistasToolStripMenuItem_Click);
+            // 
+            // atribuirProjectosToolStripMenuItem
+            // 
+            this.atribuirProjectosToolStripMenuItem.Name = "atribuirProjectosToolStripMenuItem";
+            this.atribuirProjectosToolStripMenuItem.Size = new System.Drawing.Size(230, 24);
+            this.atribuirProjectosToolStripMenuItem.Text = "Atribuir Projectos";
+            this.atribuirProjectosToolStripMenuItem.Click += new System.EventHandler(this.atribuirProjectosToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -200,6 +266,13 @@ namespace Projecto_de_DA
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStripMenuItem gestaoDeProjectosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem maisToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tiposDeDocumentosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem documentosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tiposProcessoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tiposDeProjectosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem especialistasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem atribuirProjectosToolStripMenuItem;
     }
 }
 

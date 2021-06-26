@@ -59,6 +59,7 @@ namespace Projecto_de_DA
             this.btnDesbloquear.Size = new System.Drawing.Size(50, 50);
             this.btnDesbloquear.TabIndex = 42;
             this.btnDesbloquear.UseVisualStyleBackColor = true;
+            this.btnDesbloquear.Click += new System.EventHandler(this.btnDesbloquear_Click);
             // 
             // btnAtualizar
             // 
@@ -68,6 +69,7 @@ namespace Projecto_de_DA
             this.btnAtualizar.TabIndex = 41;
             this.btnAtualizar.Text = "Atualizar Dados";
             this.btnAtualizar.UseVisualStyleBackColor = true;
+            this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
             // 
             // btnEliminar
             // 
@@ -77,6 +79,7 @@ namespace Projecto_de_DA
             this.btnEliminar.TabIndex = 40;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // label8
             // 
@@ -145,6 +148,7 @@ namespace Projecto_de_DA
             this.btnAdicionar.TabIndex = 30;
             this.btnAdicionar.Text = "Adicionar";
             this.btnAdicionar.UseVisualStyleBackColor = true;
+            this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
             // 
             // tbxNomeFuncionario
             // 
@@ -178,6 +182,7 @@ namespace Projecto_de_DA
             this.listBoxFuncionarios.Name = "listBoxFuncionarios";
             this.listBoxFuncionarios.Size = new System.Drawing.Size(265, 407);
             this.listBoxFuncionarios.TabIndex = 23;
+            this.listBoxFuncionarios.SelectedIndexChanged += new System.EventHandler(this.listBoxFuncionarios_SelectedIndexChanged);
             // 
             // formFuncionarios
             // 

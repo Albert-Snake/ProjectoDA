@@ -65,6 +65,10 @@
       <End Role="TipoProjeto" EntitySet="TipoProjetoSet" />
       <End Role="Especialista" EntitySet="EspecialistaSet" />
     </AssociationSet>
+    <AssociationSet Name="TipoProjetoTipoProjeto" Association="GestaoCamaraMunicipal.Store.TipoProjetoTipoProjeto">
+      <End Role="TipoProjeto" EntitySet="TipoProjetoSet" />
+      <End Role="TipoProjeto1" EntitySet="TipoProjetoSet" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="TipoDocumentoSet">
     <Key>
@@ -113,7 +117,6 @@
     <Property Name="TipoDocumentoId" Type="int" Nullable="false" />
     <Property Name="ProjetoId" Type="int" Nullable="false" />
     <Property Name="ProjetoProcessoId" Type="int" Nullable="false" />
-    <Property Name="ParecerNumero" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="ProjetoSet">
     <Key>
@@ -133,8 +136,8 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="NrDiasAprovacao" Type="int" Nullable="false" />
-    <Property Name="TipoProjetoId" Type="int" Nullable="true" />
     <Property Name="Designacao" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TipoProjetoId" Type="int" Nullable="true" />
   </EntityType>
   <EntityType Name="ParecerSet">
     <Key>
@@ -325,6 +328,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="TipoProjetoTipoProjeto">
+    <End Role="TipoProjeto" Type="GestaoCamaraMunicipal.Store.TipoProjetoSet" Multiplicity="0..1" />
+    <End Role="TipoProjeto1" Type="GestaoCamaraMunicipal.Store.TipoProjetoSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoProjeto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TipoProjeto1">
+        <PropertyRef Name="TipoProjetoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -389,6 +404,10 @@
             <End Role="TipoProjeto" EntitySet="TipoProjetoSet" />
             <End Role="Especialista" EntitySet="EspecialistaSet" />
           </AssociationSet>
+          <AssociationSet Name="TipoProjetoTipoProjeto" Association="GestaoCamaraMunicipal.TipoProjetoTipoProjeto">
+            <End Role="TipoProjeto" EntitySet="TipoProjetoSet" />
+            <End Role="TipoProjeto1" EntitySet="TipoProjetoSet" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="TipoDocumento">
           <Key>
@@ -443,7 +462,6 @@
           <Property Name="TipoDocumentoId" Type="Int32" Nullable="false" />
           <Property Name="ProjetoId" Type="Int32" Nullable="false" />
           <Property Name="ProjetoProcessoId" Type="Int32" Nullable="false" />
-          <Property Name="ParecerNumero" Type="Int32" Nullable="false" />
           <NavigationProperty Name="TipoDocumento" Relationship="GestaoCamaraMunicipal.TipoDocumentoDocumento" FromRole="Documento" ToRole="TipoDocumento" />
           <NavigationProperty Name="Projeto" Relationship="GestaoCamaraMunicipal.ProjetoDocumento" FromRole="Documento" ToRole="Projeto" />
         </EntityType>
@@ -470,11 +488,13 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NrDiasAprovacao" Type="Int32" Nullable="false" />
-          <Property Name="TipoProjetoId" Type="Int32" Nullable="true" />
           <NavigationProperty Name="Projeto" Relationship="GestaoCamaraMunicipal.TipoProjetoProjeto" FromRole="TipoProjeto" ToRole="Projeto" />
           <NavigationProperty Name="Especialista" Relationship="GestaoCamaraMunicipal.TipoProjetoEspecialista" FromRole="TipoProjeto" ToRole="Especialista" />
           <Property Name="Designacao" Type="String" Nullable="false" />
-        </EntityType>
+          <NavigationProperty Name="TipoProjeto1" Relationship="GestaoCamaraMunicipal.TipoProjetoTipoProjeto" FromRole="TipoProjeto" ToRole="TipoProjeto1" />
+          <NavigationProperty Name="TipoProjeto2" Relationship="GestaoCamaraMunicipal.TipoProjetoTipoProjeto" FromRole="TipoProjeto1" ToRole="TipoProjeto" />
+          <Property Name="TipoProjetoId" Type="Int32" Nullable="true" />
+          </EntityType>
         <EntityType Name="Parecer">
           <Key>
             <PropertyRef Name="Numero" />
@@ -661,6 +681,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="TipoProjetoTipoProjeto">
+          <End Type="GestaoCamaraMunicipal.TipoProjeto" Role="TipoProjeto" Multiplicity="0..1" />
+          <End Type="GestaoCamaraMunicipal.TipoProjeto" Role="TipoProjeto1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoProjeto">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TipoProjeto1">
+              <PropertyRef Name="TipoProjetoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -715,7 +747,6 @@
           <ScalarProperty Name="Titulo" ColumnName="Titulo" />
           <ScalarProperty Name="DataEntrega" ColumnName="DataEntrega" />
           <ScalarProperty Name="TipoDocumentoId" ColumnName="TipoDocumentoId" />
-          <ScalarProperty Name="ParecerNumero" ColumnName="ParecerNumero" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -736,8 +767,8 @@
         <MappingFragment StoreEntitySet="TipoProjetoSet">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="NrDiasAprovacao" ColumnName="NrDiasAprovacao" />
-          <ScalarProperty Name="TipoProjetoId" ColumnName="TipoProjetoId" />
           <ScalarProperty Name="Designacao" ColumnName="Designacao" />
+          <ScalarProperty Name="TipoProjetoId" ColumnName="TipoProjetoId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -810,18 +841,18 @@
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="6a77f44fbff747de9cc83379ad7391a5" Name="Diagram1" ZoomLevel="74">
-        <EntityTypeShape EntityType="GestaoCamaraMunicipal.TipoDocumento" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="GestaoCamaraMunicipal.Promotor" Width="1.5" PointX="1.5" PointY="12.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="GestaoCamaraMunicipal.Processo" Width="1.5" PointX="0.75" PointY="2.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="GestaoCamaraMunicipal.EstadoProcesso" Width="1.5" PointX="1.5" PointY="15.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="GestaoCamaraMunicipal.Documento" Width="1.5" PointX="5.25" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="GestaoCamaraMunicipal.Projeto" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="GestaoCamaraMunicipal.TipoProjeto" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="GestaoCamaraMunicipal.Parecer" Width="1.5" PointX="5.25" PointY="10.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="GestaoCamaraMunicipal.Funcionario" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="GestaoCamaraMunicipal.Especialista" Width="1.5" PointX="6" PointY="8" IsExpanded="true" />
-        <EntityTypeShape EntityType="GestaoCamaraMunicipal.ProjetoAtribuido" Width="1.5" PointX="8.25" PointY="7.75" IsExpanded="true" />
+      <Diagram DiagramId="6a77f44fbff747de9cc83379ad7391a5" Name="Diagram1" ZoomLevel="73">
+        <EntityTypeShape EntityType="GestaoCamaraMunicipal.TipoDocumento" Width="1.5" PointX="3.125" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestaoCamaraMunicipal.Promotor" Width="1.5" PointX="0.5" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestaoCamaraMunicipal.Processo" Width="1.5" PointX="2.875" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestaoCamaraMunicipal.EstadoProcesso" Width="1.5" PointX="2.875" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestaoCamaraMunicipal.Documento" Width="1.5" PointX="5.375" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestaoCamaraMunicipal.Projeto" Width="1.5" PointX="5.625" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestaoCamaraMunicipal.TipoProjeto" Width="1.5" PointX="8.375" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestaoCamaraMunicipal.Parecer" Width="1.5" PointX="11.875" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestaoCamaraMunicipal.Funcionario" Width="1.5" PointX="15.875" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestaoCamaraMunicipal.Especialista" Width="1.5" PointX="11.875" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestaoCamaraMunicipal.ProjetoAtribuido" Width="1.5" PointX="16.25" PointY="5.625" IsExpanded="true" />
         <AssociationConnector Association="GestaoCamaraMunicipal.TipoDocumentoDocumento" ManuallyRouted="false" />
         <AssociationConnector Association="GestaoCamaraMunicipal.PromotorProcesso" ManuallyRouted="false" />
         <AssociationConnector Association="GestaoCamaraMunicipal.EstadoProcessoProcesso" ManuallyRouted="false" />
@@ -834,6 +865,7 @@
         <AssociationConnector Association="GestaoCamaraMunicipal.FuncionarioEspecialista" ManuallyRouted="false" />
         <AssociationConnector Association="GestaoCamaraMunicipal.FuncionarioProjetoAtribuido" ManuallyRouted="false" />
         <AssociationConnector Association="GestaoCamaraMunicipal.TipoProjetoEspecialista" ManuallyRouted="false" />
+        <AssociationConnector Association="GestaoCamaraMunicipal.TipoProjetoTipoProjeto" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

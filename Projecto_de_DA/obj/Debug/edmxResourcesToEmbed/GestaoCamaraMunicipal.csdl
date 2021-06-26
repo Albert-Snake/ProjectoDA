@@ -60,6 +60,10 @@
       <End Role="TipoProjeto" EntitySet="TipoProjetoSet" />
       <End Role="Especialista" EntitySet="EspecialistaSet" />
     </AssociationSet>
+    <AssociationSet Name="TipoProjetoTipoProjeto" Association="GestaoCamaraMunicipal.TipoProjetoTipoProjeto">
+      <End Role="TipoProjeto" EntitySet="TipoProjetoSet" />
+      <End Role="TipoProjeto1" EntitySet="TipoProjetoSet" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="TipoDocumento">
     <Key>
@@ -114,7 +118,6 @@
     <Property Name="TipoDocumentoId" Type="Int32" Nullable="false" />
     <Property Name="ProjetoId" Type="Int32" Nullable="false" />
     <Property Name="ProjetoProcessoId" Type="Int32" Nullable="false" />
-    <Property Name="ParecerNumero" Type="Int32" Nullable="false" />
     <NavigationProperty Name="TipoDocumento" Relationship="GestaoCamaraMunicipal.TipoDocumentoDocumento" FromRole="Documento" ToRole="TipoDocumento" />
     <NavigationProperty Name="Projeto" Relationship="GestaoCamaraMunicipal.ProjetoDocumento" FromRole="Documento" ToRole="Projeto" />
   </EntityType>
@@ -141,10 +144,12 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="NrDiasAprovacao" Type="Int32" Nullable="false" />
-    <Property Name="TipoProjetoId" Type="Int32" Nullable="true" />
     <NavigationProperty Name="Projeto" Relationship="GestaoCamaraMunicipal.TipoProjetoProjeto" FromRole="TipoProjeto" ToRole="Projeto" />
     <NavigationProperty Name="Especialista" Relationship="GestaoCamaraMunicipal.TipoProjetoEspecialista" FromRole="TipoProjeto" ToRole="Especialista" />
     <Property Name="Designacao" Type="String" Nullable="false" />
+    <NavigationProperty Name="TipoProjeto1" Relationship="GestaoCamaraMunicipal.TipoProjetoTipoProjeto" FromRole="TipoProjeto" ToRole="TipoProjeto1" />
+    <NavigationProperty Name="TipoProjeto2" Relationship="GestaoCamaraMunicipal.TipoProjetoTipoProjeto" FromRole="TipoProjeto1" ToRole="TipoProjeto" />
+    <Property Name="TipoProjetoId" Type="Int32" Nullable="true" />
   </EntityType>
   <EntityType Name="Parecer">
     <Key>
@@ -328,6 +333,18 @@
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Especialista">
+        <PropertyRef Name="TipoProjetoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TipoProjetoTipoProjeto">
+    <End Type="GestaoCamaraMunicipal.TipoProjeto" Role="TipoProjeto" Multiplicity="0..1" />
+    <End Type="GestaoCamaraMunicipal.TipoProjeto" Role="TipoProjeto1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoProjeto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TipoProjeto1">
         <PropertyRef Name="TipoProjetoId" />
       </Dependent>
     </ReferentialConstraint>
