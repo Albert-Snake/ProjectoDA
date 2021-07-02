@@ -70,7 +70,6 @@ namespace Projecto_de_DA
                 }
                 catch(Exception ex)
                 {
-                    tbxNIFPromotor.Text = "";
                     MessageBox.Show("O número de Contribuinte inserido ja foi adicionado anteriormente" + ex, "NIF INVÁLIDO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 
@@ -113,7 +112,6 @@ namespace Projecto_de_DA
 
                 //alterar o text do botão adicionar
                 btnAdicionar.Text = "Limpar Dados";
-                //lerDados();
                 //amara.Dispose();
             }
             else 
@@ -145,8 +143,9 @@ namespace Projecto_de_DA
 
                 //alterar o text do botão adicionar
                 btnAdicionar.Text = "Adicionar";
-                //lerDados();
-                //camara.Dispose();
+
+                //desceleciona o Item selecionado
+                
 
 
             }
@@ -181,7 +180,9 @@ namespace Projecto_de_DA
                 btnAdicionar.Enabled = false;
                 btnEliminar.Enabled = false;
 
-                //camara.Dispose();
+                //Torna o botao atualizar vivivel e enabled
+                btnAtualizar.Enabled = true;
+                btnAtualizar.Visible = true;
             }
             //else
             //{
@@ -206,10 +207,19 @@ namespace Projecto_de_DA
         {
             if (listBox1.SelectedIndex > -1)
             {
-                camara.PromotorSet.Remove((Promotor)listBox1.SelectedItem);
-                camara.SaveChanges();
-                lerDados();
-                //camara.Dispose();
+                try 
+                {
+                    camara.PromotorSet.Remove((Promotor)listBox1.SelectedItem);
+                    camara.SaveChanges();
+                    lerDados();
+                    //camara.Dispose();
+                }
+                catch (Exception ex) 
+                {
+                    MessageBox.Show("Este Promotor está associado a algum Processo. Elimine o processo associado a este Promotor","FALHA A ELIMINAR O PROMOTOR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Close();
+                }
+
             }
 
         }
@@ -253,6 +263,10 @@ namespace Projecto_de_DA
             btnEliminar.Enabled = true;
 
             lerDados();
+
+            //Torna o botao atualizar invivivel e disabled
+            btnAtualizar.Enabled = false;
+            btnAtualizar.Visible = false;
 
             //camara.Dispose();
         }

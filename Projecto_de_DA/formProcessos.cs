@@ -55,14 +55,22 @@ namespace Projecto_de_DA
 
         private void buttonGuardar_Click(object sender, EventArgs e)
         {
-            Promotor promotor = (Promotor)cbxPromotor.SelectedItem;
-            EstadoProcesso estadoprocesso = (EstadoProcesso)cbxEstadoProcesso.SelectedItem;
-            camara.ProcessoSet.Add(new Processo(dataInicio.Value, promotor, estadoprocesso));
-            camara.SaveChanges();
-            lerDadosProcessos();
-            lerDadosPromotores();
-            lerDadosEstadoProcesso();
-            permitirInserir();
+            if(cbxPromotor.Enabled == false && cbxEstadoProcesso.Enabled == false)
+            {
+                permitirInserir();
+                buttonGuardar.Text = "Guardar";
+            }
+            else
+            {
+                Promotor promotor = (Promotor)cbxPromotor.SelectedItem;
+                EstadoProcesso estadoprocesso = (EstadoProcesso)cbxEstadoProcesso.SelectedItem;
+                camara.ProcessoSet.Add(new Processo(dataInicio.Value, promotor, estadoprocesso));
+                camara.SaveChanges();
+                lerDadosProcessos();
+                lerDadosPromotores();
+                lerDadosEstadoProcesso();
+                permitirInserir();
+            } 
         }
 
         private void listboxProcessos_SelectedIndexChanged(object sender, EventArgs e)
@@ -79,6 +87,15 @@ namespace Projecto_de_DA
                 dataInicio.Enabled = false;
                 cbxPromotor.Enabled = false;
                 cbxEstadoProcesso.Enabled = false;
+
+                //alterar o text do botão adicionar
+                buttonGuardar.Text = "Limpar Dados";
+            }
+            else 
+            {
+                permitirInserir();
+                buttonGuardar.Text = "Guardar";
+                btnDesbloquear.BackgroundImage = Properties.Resources.unlock;
             }
             
         }
@@ -87,13 +104,22 @@ namespace Projecto_de_DA
         {
             if (listboxProcessos.SelectedIndex != -1)
             {
-                camara.ProcessoSet.Remove((Processo)listboxProcessos.SelectedItem);
-                camara.SaveChanges();
-                lerDadosProcessos();
-                lerDadosProcessos();
-                lerDadosPromotores();
-                lerDadosEstadoProcesso();
-                permitirInserir();
+                try 
+                {
+                    camara.ProcessoSet.Remove((Processo)listboxProcessos.SelectedItem);
+                    camara.SaveChanges();
+                    lerDadosProcessos();
+                    lerDadosProcessos();
+                    lerDadosPromotores();
+                    lerDadosEstadoProcesso();
+                    permitirInserir();
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show("Este Processo está associado a algum Projeto . Elimine o Projeto associado a este Processo", "FALHA A ELIMINAR O PROCESSO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Close();
+                }
+                
             }
                
         }
@@ -109,6 +135,10 @@ namespace Projecto_de_DA
             lerDadosEstadoProcesso();
             lerDadosPromotores();
             permitirInserir();
+
+            //Torna o botao atualizar invivivel e disabled
+            btnAtualizar.Enabled = false;
+            btnAtualizar.Visible = false;
         }
 
         private void btnDesbloquear_Click(object sender, EventArgs e)
@@ -123,6 +153,10 @@ namespace Projecto_de_DA
                     dataInicio.Enabled = true;
                     cbxPromotor.Enabled = true;
                     cbxEstadoProcesso.Enabled = true;
+
+                    //Torna o botao atualizar vivivel e enabled
+                    btnAtualizar.Enabled = true;
+                    btnAtualizar.Visible = true;
 
 
                     ////bloqueia a propriedade de adicionar ou remover caso o botão desbloquear seja pressionado

@@ -193,3 +193,16 @@ C:\Users\Alberto\Documents\Projecto_de_DA\bin\Debug\Projecto_de_DA.application
 C:\Users\Alberto\Documents\Projecto_de_DA\obj\Debug\Projecto_de_DA.TrustInfo.xml
 C:\Users\Alberto\Documents\Projecto_de_DA\obj\Debug\Projecto_de_DA.exe.manifest
 C:\Users\Alberto\Documents\Projecto_de_DA\obj\Debug\Projecto_de_DA.application
+C:\Users\Alberto\Documents\GitHub\ProjectoDA\Projecto_de_DA\bin\Debug\Projecto_de_DA.exe.manifest
+C:\Users\Alberto\Documents\GitHub\ProjectoDA\Projecto_de_DA\bin\Debug\Projecto_de_DA.application
+C:\Users\Alberto\Documents\GitHub\ProjectoDA\Projecto_de_DA\obj\Debug\Projecto_de_DA.formDocumentos.resources
+C:\Users\Alberto\Documents\GitHub\ProjectoDA\Projecto_de_DA\obj\Debug\Projecto_de_DA.formEspecialista.resources
+C:\Users\Alberto\Documents\GitHub\ProjectoDA\Projecto_de_DA\obj\Debug\Projecto_de_DA.formPareceres.resources
+C:\Users\Alberto\Documents\GitHub\ProjectoDA\Projecto_de_DA\obj\Debug\Projecto_de_DA.formProcessos.resources
+C:\Users\Alberto\Documents\GitHub\ProjectoDA\Projecto_de_DA\obj\Debug\Projecto_de_DA.formProjectoAtribuido.resources
+C:\Users\Alberto\Documents\GitHub\ProjectoDA\Projecto_de_DA\obj\Debug\Projecto_de_DA.formTipoDocumento.resources
+C:\Users\Alberto\Documents\GitHub\ProjectoDA\Projecto_de_DA\obj\Debug\Projecto_de_DA.formTipoProcessos.resources
+C:\Users\Alberto\Documents\GitHub\ProjectoDA\Projecto_de_DA\obj\Debug\Projecto_de_DA.formTipoProjecto.resources
+C:\Users\Alberto\Documents\GitHub\ProjectoDA\Projecto_de_DA\obj\Debug\Projecto_de_DA.TrustInfo.xml
+C:\Users\Alberto\Documents\GitHub\ProjectoDA\Projecto_de_DA\obj\Debug\Projecto_de_DA.exe.manifest
+C:\Users\Alberto\Documents\GitHub\ProjectoDA\Projecto_de_DA\obj\Debug\Projecto_de_DA.application
