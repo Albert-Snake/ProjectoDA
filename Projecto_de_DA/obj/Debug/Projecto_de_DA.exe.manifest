@@ -66,14 +66,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Projecto_de_DA.exe" size="198640">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Projecto_de_DA.exe" size="199152">
       <assemblyIdentity name="Projecto_de_DA" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>8bLaCUyQn6B/Q1G/aQ51Mtvjcf8f94x6NbKzvTg6t00=</dsig:DigestValue>
+        <dsig:DigestValue>N1jfswIaasd9GKU5oKxAmEb+rlRZzYMgoD69aeBlCIg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

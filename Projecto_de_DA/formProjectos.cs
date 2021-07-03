@@ -57,22 +57,38 @@ namespace Projecto_de_DA
 
         private void buttonGuardar_Click(object sender, EventArgs e)
         {
-            TipoProjeto tipoprojeto = (TipoProjeto)cbxTipoProjeto.SelectedItem;
-            Processo processo = (Processo)cbxProcesso.SelectedItem;
-            camara.ProjetoSet.Add(new Projeto(tbxNomeProjeto.Text, DataInicio.Value, DataAprovecao.Value, tipoprojeto, processo));
-            camara.SaveChanges();
-            lerDadosProjectos();
-            permitirInserir();
+            if (tbxNomeProjeto.Enabled == false)
+            {
+                permitirInserir();
+            }
+            else
+            {
+                TipoProjeto tipoprojeto = (TipoProjeto)cbxTipoProjeto.SelectedItem;
+                Processo processo = (Processo)cbxProcesso.SelectedItem;
+                camara.ProjetoSet.Add(new Projeto(tbxNomeProjeto.Text, DataInicio.Value, DataAprovecao.Value, tipoprojeto, processo));
+                camara.SaveChanges();
+                lerDadosProjectos();
+                permitirInserir();
+            }
+            
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (listboxProjetos.SelectedIndex != -1)
+            try
             {
-                camara.ProjetoSet.Remove((Projeto)listboxProjetos.SelectedItem);
-                camara.SaveChanges();
-                lerDadosProjectos();
-                permitirInserir();
+                if (listboxProjetos.SelectedIndex != -1)
+                {
+                    camara.ProjetoSet.Remove((Projeto)listboxProjetos.SelectedItem);
+                    camara.SaveChanges();
+                    lerDadosProjectos();
+                    permitirInserir();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Este Projeto está associado a alguma outra tarefa. Elimine essa associação para pooder eliminar este Projeto", "FALHA A ELIMINAR O PROJETO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
             }
         }
 
@@ -109,6 +125,9 @@ namespace Projecto_de_DA
                 DataAprovecao.Enabled = false;
                 cbxTipoProjeto.Enabled = false;
                 cbxProcesso.Enabled = false;
+
+                //alterar o text do botão adicionar
+                buttonGuardar.Text = "Limpar Dados";
             }
         }
 
@@ -116,21 +135,30 @@ namespace Projecto_de_DA
         {
             if (listboxProjetos.SelectedIndex != -1)
             {
-                btnDesbloquear.BackgroundImage = Properties.Resources.unlock;
+                if (MessageBox.Show("Pretende alterar os dados deste Promotor?", "Alterar dados do Promotor", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    btnDesbloquear.BackgroundImage = Properties.Resources.unlock;
 
-                tbxNomeProjeto.Enabled = true;
-                DataInicio.Enabled = true;
-                DataAprovecao.Enabled = true;
-                cbxTipoProjeto.Enabled = true;
-                cbxProcesso.Enabled = true;
+                    tbxNomeProjeto.Enabled = true;
+                    DataInicio.Enabled = true;
+                    DataAprovecao.Enabled = true;
+                    cbxTipoProjeto.Enabled = true;
+                    cbxProcesso.Enabled = true;
 
-                buttonGuardar.Enabled = false;
-                btnEliminar.Enabled = false;
+                    buttonGuardar.Enabled = false;
+                    btnEliminar.Enabled = false;
+
+                    btnAtualizar.Enabled = true;
+                    btnAtualizar.Visible = true;
+                }
+               
             }
         }
 
         private void permitirInserir()
         {
+            btnDesbloquear.BackgroundImage = Properties.Resources.unlock;
+
             tbxNomeProjeto.ReadOnly = false;
 
             tbxNomeProjeto.Enabled = true;
@@ -143,6 +171,11 @@ namespace Projecto_de_DA
 
             cbxProcesso.SelectedIndex = -1;
             cbxTipoProjeto.SelectedIndex = -1;
+
+            btnAtualizar.Enabled = false;
+            btnAtualizar.Visible = false;
+
+            buttonGuardar.Text = "Guardar";
 
 
 
