@@ -63,12 +63,21 @@ namespace Projecto_de_DA
             }
             else
             {
-                TipoProjeto tipoprojeto = (TipoProjeto)cbxTipoProjeto.SelectedItem;
-                Processo processo = (Processo)cbxProcesso.SelectedItem;
-                camara.ProjetoSet.Add(new Projeto(tbxNomeProjeto.Text, DataInicio.Value, DataAprovecao.Value, tipoprojeto, processo));
-                camara.SaveChanges();
-                lerDadosProjectos();
-                permitirInserir();
+                try
+                {
+                    TipoProjeto tipoprojeto = (TipoProjeto)cbxTipoProjeto.SelectedItem;
+                    Processo processo = (Processo)cbxProcesso.SelectedItem;
+                    camara.ProjetoSet.Add(new Projeto(tbxNomeProjeto.Text, DataInicio.Value, DataAprovecao.Value, tipoprojeto, processo));
+                    camara.SaveChanges();
+                    lerDadosProjectos();
+                    permitirInserir();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Falha ao adicionar este Projecto, insira novamente todos os dados nos campos designados", "FALHA AO INSERIR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Close();
+                }
+                
             }
             
         }

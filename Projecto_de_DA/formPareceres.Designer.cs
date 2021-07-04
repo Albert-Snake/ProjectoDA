@@ -41,13 +41,13 @@ namespace Projecto_de_DA
             this.bsPareceres = new System.Windows.Forms.BindingSource(this.components);
             this.dataParecer = new System.Windows.Forms.DateTimePicker();
             this.cbxProjeto = new System.Windows.Forms.ComboBox();
+            this.bsProjeto = new System.Windows.Forms.BindingSource(this.components);
             this.cbxFuncionario = new System.Windows.Forms.ComboBox();
+            this.bsFuncionario = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.bsProjeto = new System.Windows.Forms.BindingSource(this.components);
-            this.bsFuncionario = new System.Windows.Forms.BindingSource(this.components);
             this.listboxPareceres = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.bsPareceres)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsProjeto)).BeginInit();
@@ -69,12 +69,14 @@ namespace Projecto_de_DA
             // 
             // btnAtualizar
             // 
+            this.btnAtualizar.Enabled = false;
             this.btnAtualizar.Location = new System.Drawing.Point(464, 369);
             this.btnAtualizar.Name = "btnAtualizar";
             this.btnAtualizar.Size = new System.Drawing.Size(115, 60);
             this.btnAtualizar.TabIndex = 55;
             this.btnAtualizar.Text = "Atualizar Dados";
             this.btnAtualizar.UseVisualStyleBackColor = true;
+            this.btnAtualizar.Visible = false;
             this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
             // 
             // btnEliminar

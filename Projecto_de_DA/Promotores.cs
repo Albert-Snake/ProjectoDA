@@ -68,12 +68,13 @@ namespace Projecto_de_DA
                     camara.SaveChanges();
                     lerDados();
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
-                    MessageBox.Show("O número de Contribuinte inserido ja foi adicionado anteriormente" + ex, "NIF INVÁLIDO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Falha ao adicionar este Promotor, insira novamente todos os dados nos campos designados", "FALHA AO INSERIR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Close();
                 }
-                
-               
+
+
             }
         }
 

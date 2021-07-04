@@ -62,14 +62,23 @@ namespace Projecto_de_DA
             }
             else
             {
-                Promotor promotor = (Promotor)cbxPromotor.SelectedItem;
-                EstadoProcesso estadoprocesso = (EstadoProcesso)cbxEstadoProcesso.SelectedItem;
-                camara.ProcessoSet.Add(new Processo(dataInicio.Value, promotor, estadoprocesso));
-                camara.SaveChanges();
-                lerDadosProcessos();
-                lerDadosPromotores();
-                lerDadosEstadoProcesso();
-                permitirInserir();
+                try 
+                {
+                    Promotor promotor = (Promotor)cbxPromotor.SelectedItem;
+                    EstadoProcesso estadoprocesso = (EstadoProcesso)cbxEstadoProcesso.SelectedItem;
+                    camara.ProcessoSet.Add(new Processo(dataInicio.Value, promotor, estadoprocesso));
+                    camara.SaveChanges();
+                    lerDadosProcessos();
+                    lerDadosPromotores();
+                    lerDadosEstadoProcesso();
+                    permitirInserir();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Falha ao adicionar este Processo, insira novamente todos os dados nos campos designados", "FALHA AO INSERIR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Close();
+                }
+
             } 
         }
 

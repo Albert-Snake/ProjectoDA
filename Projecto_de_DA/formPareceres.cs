@@ -54,12 +54,28 @@ namespace Projecto_de_DA
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
-            Projeto projeto = (Projeto)cbxProjeto.SelectedItem;
-            Funcionario funcionario = (Funcionario)cbxFuncionario.SelectedItem;
-            camara.ParecerSet.Add(new Parecer(tbxTextoParecer.Text, dataParecer.Value, projeto, funcionario));
-            camara.SaveChanges();
-            lerDadosPareceres();
-            permitirInserir();
+            if (tbxTextoParecer.ReadOnly == true)
+            {
+                permitirInserir();
+            }
+            else
+            {
+                try 
+                {
+                    Projeto projeto = (Projeto)cbxProjeto.SelectedItem;
+                    Funcionario funcionario = (Funcionario)cbxFuncionario.SelectedItem;
+                    camara.ParecerSet.Add(new Parecer(tbxTextoParecer.Text, dataParecer.Value, projeto, funcionario));
+                    camara.SaveChanges();
+                    lerDadosPareceres();
+                    permitirInserir();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Falha ao adicionar este Parecer, insira novamente todos os dados nos campos designados", "FALHA AO INSERIR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Close();
+                }
+            }
+            
 
         }
 
@@ -99,6 +115,9 @@ namespace Projecto_de_DA
 
                 btnAdicionar.Enabled = true;
                 btnEliminar.Enabled = true;
+
+                btnAtualizar.Enabled = false;
+                btnAtualizar.Visible = false;
 
                 lerDadosPareceres();
                 permitirInserir();
@@ -152,6 +171,9 @@ namespace Projecto_de_DA
                     //bloqueia a propriedade de adicionar ou remover caso o botão desbloquear seja pressionado
                     btnAdicionar.Enabled = false;
                     btnEliminar.Enabled = false;
+
+                    btnAtualizar.Enabled = true;
+                    btnAtualizar.Visible = true;
                 }
             }
         }
@@ -165,9 +187,12 @@ namespace Projecto_de_DA
 
             cbxFuncionario.SelectedIndex = -1;
             cbxProjeto.SelectedIndex = -1;
+            tbxTextoParecer.Text = "";
 
             //alterar o text do botão adicionar
             btnAdicionar.Text = "Adicionar";
+
+            btnDesbloquear.BackgroundImage = Properties.Resources.unlock;
         }
     }
 }

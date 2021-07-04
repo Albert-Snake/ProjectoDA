@@ -64,8 +64,10 @@ namespace Projecto_de_DA
                     lerDados();
                     permitirInserir();
                 }
-                finally 
+                catch (Exception ex) 
                 {
+                    MessageBox.Show("Falha ao adicionar este Funcionario, insira novamente todos os dados nos campos designados", "FALHA AO INSERIR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Close();
                 }
                 
 
@@ -79,11 +81,20 @@ namespace Projecto_de_DA
         {
             if (listBoxFuncionarios.SelectedIndex > -1)
             {
-                camara.FuncionarioSet.Remove((Funcionario)listBoxFuncionarios.SelectedItem);
-                camara.SaveChanges();
-                lerDados();
-                //camara.Dispose();
-                permitirInserir();
+                try 
+                {
+                    camara.FuncionarioSet.Remove((Funcionario)listBoxFuncionarios.SelectedItem);
+                    camara.SaveChanges();
+                    lerDados();
+                    //camara.Dispose();
+                    permitirInserir();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Este Funcionário está associado a alguma outra tarefa. Elimine essa tarefa associada a este Funcionário", "FALHA A ELIMINAR O FUNCIONÁRIO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Close();
+                }
+                
             }
         }
 
@@ -109,6 +120,9 @@ namespace Projecto_de_DA
 
             btnAdicionar.Enabled = true;
             btnEliminar.Enabled = true;
+
+            btnAtualizar.Enabled = false;
+            btnAtualizar.Visible = false;
 
             lerDados();
             permitirInserir();
@@ -144,7 +158,7 @@ namespace Projecto_de_DA
         {
             if (listBoxFuncionarios.SelectedIndex > -1)
             {
-                if (MessageBox.Show("Pretende alterar os dados deste Promotor?", "Alterar dados do Promotor", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Pretende alterar os dados deste Funcionário?", "Alterar dados do Funcionário", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     btnDesbloquear.BackgroundImage = Properties.Resources.unlock;
 
@@ -157,6 +171,9 @@ namespace Projecto_de_DA
                     //bloqueia a propriedade de adicionar ou remover caso o botão desbloquear seja pressionado
                     btnAdicionar.Enabled = false;
                     btnEliminar.Enabled = false;
+
+                    btnAtualizar.Enabled = true;
+                    btnAtualizar.Visible = true;
                 }
             }
         }
@@ -172,6 +189,8 @@ namespace Projecto_de_DA
             tbxExtencaoFuncionario.Text = "";
 
             btnAdicionar.Text = "Adicionar";
+
+            btnDesbloquear.BackgroundImage = Properties.Resources.unlock;
         }
     }
 }
