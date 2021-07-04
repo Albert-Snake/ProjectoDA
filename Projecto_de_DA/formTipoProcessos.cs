@@ -22,6 +22,7 @@ namespace Projecto_de_DA
             tbxDescricaoProcesso.Text = "";
             tbxDescricaoProcesso.ReadOnly = false;
             btnDesbloquear.BackgroundImage = Properties.Resources.unlock;
+            btnAdicionar.Text = "Adicionar";
 
         }
         private void lerDados()
@@ -65,7 +66,16 @@ namespace Projecto_de_DA
 
                         tbxDescricaoProcesso.Text = "";
                     }
-                    finally { }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Falha ao adicionar este Tipo de Processo, insira novamente todos os dados nos campos designados", "FALHA AO INSERIR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        this.Close();
+                    }
+                }
+                else 
+                {
+                    MessageBox.Show("Falha ao adicionar este Tipo de Processo, insira novamente todos os dados nos campos designados", "FALHA AO INSERIR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Close();
                 }
                 
             }
@@ -76,25 +86,35 @@ namespace Projecto_de_DA
         {
             if (listboxEstadosProcessos.SelectedIndex != -1)
             {
-                camara.EstadoProcessoSet.Remove((EstadoProcesso)listboxEstadosProcessos.SelectedItem);
-                camara.SaveChanges();
-                lerDados();
+                try
+                {
+                    camara.EstadoProcessoSet.Remove((EstadoProcesso)listboxEstadosProcessos.SelectedItem);
+                    camara.SaveChanges();
+                    lerDados();
 
-                btnDesbloquear.BackgroundImage = Properties.Resources.unlock;
+                    btnDesbloquear.BackgroundImage = Properties.Resources.unlock;
 
-                //Torna as textboxes possiveis de se escrever
-                tbxDescricaoProcesso.ReadOnly = false;
-
-
-                //preencher as textboxes com os valores nulos
-                tbxDescricaoProcesso.Text = "";
+                    //Torna as textboxes possiveis de se escrever
+                    tbxDescricaoProcesso.ReadOnly = false;
 
 
+                    //preencher as textboxes com os valores nulos
+                    tbxDescricaoProcesso.Text = "";
 
-                //alterar o text do botão Adicionar
-                btnAdicionar.Text = "Adicionar";
 
-                tbxDescricaoProcesso.Text = "";
+
+                    //alterar o text do botão Adicionar
+                    btnAdicionar.Text = "Adicionar";
+
+                    tbxDescricaoProcesso.Text = "";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Este Tipo de Processo está associado a algum Processo. Elimine o Processo associado a este Tipo de Processo", "FALHA A ELIMINAR O PROMOTOR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Close();
+                }
+
+
             }
             else
                 MessageBox.Show("Por Favor, selecione o Tipo de Documento que pretende eliminar", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -119,6 +139,10 @@ namespace Projecto_de_DA
 
             tbxDescricaoProcesso.Text = "";
 
+            //Torna o botao atualizar invivivel e disabled
+            btnAtualizar.Enabled = false;
+            btnAtualizar.Visible = false;
+
 
         }
 
@@ -126,7 +150,7 @@ namespace Projecto_de_DA
         {
             if (listboxEstadosProcessos.SelectedIndex > -1)
             {
-                if (MessageBox.Show("Pretende alterar os dados deste Promotor?", "Alterar dados do Promotor", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Pretende alterar os dados deste Tipo de Processo?", "Alterar dados do Tipo de Process", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     btnDesbloquear.BackgroundImage = Properties.Resources.unlock;
 
@@ -139,6 +163,10 @@ namespace Projecto_de_DA
                     //bloqueia a propriedade de adicionar ou remover caso o botão desbloquear seja pressionado
                     btnAdicionar.Enabled = false;
                     btnEliminar.Enabled = false;
+
+                    //Torna o botao atualizar vivivel e enabled
+                    btnAtualizar.Enabled = true;
+                    btnAtualizar.Visible = true;
                 }
             }
         }

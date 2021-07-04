@@ -20,6 +20,7 @@ namespace Projecto_de_DA
             lerDadosTipoDocumento();
             lerDadosProjecto();
             lerDadosDocumentos();
+            permitirInserir();
         }
 
         #region Ler Dados
@@ -48,11 +49,26 @@ namespace Projecto_de_DA
 
         private void buttonGuardar_Click(object sender, EventArgs e)
         {
-            TipoDocumento tipodocumento = (TipoDocumento)cbxTipoDocumento.SelectedItem;
-            Projeto projeto = (Projeto)cbxProjecto.SelectedItem;
-            camara.DocumentoSet.Add(new Documento(tbxNomeDocumento.Text, dtDataEntrega.Value, tipodocumento, projeto));
-            camara.SaveChanges();
-            lerDadosDocumentos();
+            if(tbxNomeDocumento.Enabled == false)
+            {
+                permitirInserir();
+            }
+            else
+            {
+                if(tbxNomeDocumento.Text != "" && cbxProjecto.SelectedIndex != -1 && cbxTipoDocumento.SelectedIndex == -1)
+                {
+                    TipoDocumento tipodocumento = (TipoDocumento)cbxTipoDocumento.SelectedItem;
+                    Projeto projeto = (Projeto)cbxProjecto.SelectedItem;
+                    camara.DocumentoSet.Add(new Documento(tbxNomeDocumento.Text, dtDataEntrega.Value, tipodocumento, projeto));
+                    camara.SaveChanges();
+                    lerDadosDocumentos();
+                }
+                else
+                {
+                    MessageBox.Show("Falha ao adicionar este Documento, insira novamente todos os dados nos campos designados", "FALHA AO INSERIR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Close();
+                }
+            }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -62,8 +78,10 @@ namespace Projecto_de_DA
                 camara.DocumentoSet.Remove((Documento)listboxDocumentos.SelectedItem);
                 camara.SaveChanges();
                 lerDadosDocumentos();
+                permitirInserir();
+
             }
-            
+
         }
 
         private void btnAtualizar_Click(object sender, EventArgs e)
@@ -77,23 +95,45 @@ namespace Projecto_de_DA
                 documento.Projeto = (Projeto)cbxProjecto.SelectedItem;
                 camara.SaveChanges();
                 lerDadosDocumentos();
+                permitirInserir();
+
+                //bloqueia a propriedade de adicionar ou remover caso o botão desbloquear seja pressionado
+                buttonGuardar.Enabled = true;
+                btnEliminar.Enabled = true;
+
+                //Torna o botao atualizar vivivel e enabled
+                btnAtualizar.Enabled = false;
+                btnAtualizar.Visible = false;
+
             }
-            
+
         }
 
         private void btnDesbloquear_Click(object sender, EventArgs e)
         {
-            //altera o icon para bloqueado
-            btnDesbloquear.BackgroundImage = Properties.Resources.unlock;
+            if (listboxDocumentos.SelectedIndex != -1)
+            {
+                if (MessageBox.Show("Pretende alterar os dados deste Documento?", "Alterar dados do Documento", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    btnDesbloquear.BackgroundImage = Properties.Resources.unlock;
 
-            //Torna as textboxes impossiveis de se escrever
-            tbxNomeDocumento.Enabled = true;
-            dtDataEntrega.Enabled = true;
-            cbxTipoDocumento.Enabled = true;
-            cbxProjecto.Enabled = true;
+                    //Torna as textboxes impossiveis de se escrever
+                    tbxNomeDocumento.Enabled = true;
+                    dtDataEntrega.Enabled = true;
+                    cbxTipoDocumento.Enabled = true;
+                    cbxProjecto.Enabled = true;
 
-            //alterar o text do botão adicionar
-            buttonGuardar.Text = "Adicionar";
+                    //bloqueia a propriedade de adicionar ou remover caso o botão desbloquear seja pressionado
+                    buttonGuardar.Enabled = false;
+                    btnEliminar.Enabled = false;
+
+                    //Torna o botao atualizar vivivel e enabled
+                    btnAtualizar.Enabled = true;
+                    btnAtualizar.Visible = true;
+                }
+            }
+            ////alterar o text do botão adicionar
+            //buttonGuardar.Text = "Adicionar";
         }
 
         private void listboxDocumentos_SelectedIndexChanged(object sender, EventArgs e)
@@ -122,6 +162,26 @@ namespace Projecto_de_DA
                 //alterar o text do botão adicionar
                 buttonGuardar.Text = "Limpar Dados";
             }
+        }
+
+        private void permitirInserir() 
+        {
+            tbxNomeDocumento.Text = "";
+            cbxProjecto.SelectedIndex = -1;
+            cbxTipoDocumento.SelectedIndex = -1;
+
+            //Torna as textboxes possiveis de se escrever
+            tbxNomeDocumento.Enabled = true;
+            dtDataEntrega.Enabled = true;
+            cbxTipoDocumento.Enabled = true;
+            cbxProjecto.Enabled = true;
+
+            //alterar o text do botão adicionar
+            buttonGuardar.Text = "Guardar";
+
+            btnDesbloquear.BackgroundImage = Properties.Resources.unlock;
+
+
         }
     }
 }

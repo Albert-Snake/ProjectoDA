@@ -22,6 +22,7 @@ namespace Projecto_de_DA
             tbxDescricaoDocumento.Text = "";
             tbxDescricaoDocumento.ReadOnly = false;
             btnDesbloquear.BackgroundImage = Properties.Resources.unlock;
+            btnAdicionar.Text = "Adicionar";
 
         }
         private void lerDados()
@@ -59,13 +60,25 @@ namespace Projecto_de_DA
             {
                 try
                 {
-                    camara.TipoDocumentoSet.Add(new TipoDocumento(tbxDescricaoDocumento.Text));
-                    camara.SaveChanges();
-                    lerDados();
+                    if (tbxDescricaoDocumento.Text != "")
+                    {
+                        camara.TipoDocumentoSet.Add(new TipoDocumento(tbxDescricaoDocumento.Text));
+                        camara.SaveChanges();
+                        lerDados();
 
-                    tbxDescricaoDocumento.Text = "";
+                        tbxDescricaoDocumento.Text = "";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Falha ao adicionar este Tipo de Projecto, insira novamente todos os dados nos campos designados", "FALHA AO INSERIR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        this.Close();
+                    }
                 }
-                finally { }
+                catch(Exception ex) 
+                {
+                    MessageBox.Show("Falha ao adicionar este Tipo de Projecto, insira novamente todos os dados nos campos designados", "FALHA AO INSERIR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Close();
+                }
             }
 
         }
@@ -74,25 +87,34 @@ namespace Projecto_de_DA
         {
             if (listboxTipoDocumneto.SelectedIndex != -1)
             {
-                camara.TipoDocumentoSet.Remove((TipoDocumento)listboxTipoDocumneto.SelectedItem);
-                camara.SaveChanges();
-                lerDados();
+                try 
+                {
+                    camara.TipoDocumentoSet.Remove((TipoDocumento)listboxTipoDocumneto.SelectedItem);
+                    camara.SaveChanges();
+                    lerDados();
 
-                btnDesbloquear.BackgroundImage = Properties.Resources.unlock;
+                    btnDesbloquear.BackgroundImage = Properties.Resources.unlock;
 
-                //Torna as textboxes possiveis de se escrever
-                tbxDescricaoDocumento.ReadOnly = false;
-
-
-                //preencher as textboxes com os valores nulos
-                tbxDescricaoDocumento.Text = "";
+                    //Torna as textboxes possiveis de se escrever
+                    tbxDescricaoDocumento.ReadOnly = false;
 
 
+                    //preencher as textboxes com os valores nulos
+                    tbxDescricaoDocumento.Text = "";
 
-                //alterar o text do botão Adicionar
-                btnAdicionar.Text = "Adicionar";
 
-                tbxDescricaoDocumento.Text = "";
+
+                    //alterar o text do botão Adicionar
+                    btnAdicionar.Text = "Adicionar";
+
+                    tbxDescricaoDocumento.Text = "";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Este Tipo de Documento está associado a algum Documento. Elimine o Documento associado a este Tipo de Documento", "FALHA A ELIMINAR O PROMOTOR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Close();
+                }
+                
             }
             else
                 MessageBox.Show("Por Favor, selecione o Tipo de Documento que pretende eliminar", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -116,6 +138,10 @@ namespace Projecto_de_DA
             lerDados();
 
             tbxDescricaoDocumento.Text = "";
+
+            //Torna o botao atualizar invivivel e disabled
+            btnAtualizar.Enabled = false;
+            btnAtualizar.Visible = false;
 
 
         }
@@ -148,7 +174,7 @@ namespace Projecto_de_DA
         {
             if (listboxTipoDocumneto.SelectedIndex > -1)
             {
-                if (MessageBox.Show("Pretende alterar os dados deste Promotor?", "Alterar dados do Promotor", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Pretende alterar os dados deste Tipo de Documento?", "Alterar dados do Tipo de Documento", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     btnDesbloquear.BackgroundImage = Properties.Resources.unlock;
 
@@ -161,6 +187,10 @@ namespace Projecto_de_DA
                     //bloqueia a propriedade de adicionar ou remover caso o botão desbloquear seja pressionado
                     btnAdicionar.Enabled = false;
                     btnEliminar.Enabled = false;
+
+                    //Torna o botao atualizar vivivel e enabled
+                    btnAtualizar.Enabled = true;
+                    btnAtualizar.Visible = true;
                 }
             }
         }
