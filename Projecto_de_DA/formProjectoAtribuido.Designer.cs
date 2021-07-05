@@ -40,16 +40,16 @@ namespace Projecto_de_DA
             this.btnFechar = new System.Windows.Forms.Button();
             this.btnAdicionar = new System.Windows.Forms.Button();
             this.listboxProjetosAtribuidos = new System.Windows.Forms.ListBox();
+            this.bsProjectosAtribuidos = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.cbxFuncionario = new System.Windows.Forms.ComboBox();
-            this.cbxProjeto = new System.Windows.Forms.ComboBox();
-            this.dataAtribuicao = new System.Windows.Forms.DateTimePicker();
-            this.bsProjectosAtribuidos = new System.Windows.Forms.BindingSource(this.components);
-            this.bsProjectos = new System.Windows.Forms.BindingSource(this.components);
             this.bsFuncionarios = new System.Windows.Forms.BindingSource(this.components);
+            this.cbxProjeto = new System.Windows.Forms.ComboBox();
+            this.bsProjectos = new System.Windows.Forms.BindingSource(this.components);
+            this.dataAtribuicao = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.bsProjectosAtribuidos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsProjectos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsFuncionarios)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsProjectos)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -85,12 +85,14 @@ namespace Projecto_de_DA
             // 
             // btnAtualizar
             // 
+            this.btnAtualizar.Enabled = false;
             this.btnAtualizar.Location = new System.Drawing.Point(461, 370);
             this.btnAtualizar.Name = "btnAtualizar";
             this.btnAtualizar.Size = new System.Drawing.Size(115, 60);
             this.btnAtualizar.TabIndex = 85;
             this.btnAtualizar.Text = "Atualizar Dados";
             this.btnAtualizar.UseVisualStyleBackColor = true;
+            this.btnAtualizar.Visible = false;
             this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
             // 
             // btnEliminar
@@ -212,8 +214,8 @@ namespace Projecto_de_DA
             this.Name = "formProjectoAtribuido";
             this.Text = "formProjectoAtribuido";
             ((System.ComponentModel.ISupportInitialize)(this.bsProjectosAtribuidos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsProjectos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsFuncionarios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsProjectos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -101,7 +101,7 @@ namespace Projecto_de_DA
                 buttonGuardar.Enabled = true;
                 btnEliminar.Enabled = true;
 
-                //Torna o botao atualizar vivivel e enabled
+                //Torna o botao atualizar invivivel e disabled
                 btnAtualizar.Enabled = false;
                 btnAtualizar.Visible = false;
 

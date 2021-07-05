@@ -54,11 +54,27 @@ namespace Projecto_de_DA
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
-            TipoProjeto tipoprojeto = (TipoProjeto)cbxTipoProjeto.SelectedItem;
-            Funcionario funcionario = (Funcionario)cbxFuncionarios.SelectedItem;
-            camara.EspecialistaSet.Add(new Especialista(tipoprojeto, funcionario));
-            camara.SaveChanges();
-            lerDadosEspecialistas();
+            if(cbxFuncionarios.Enabled == false)
+            {
+                permitirInserir();
+            }
+            else
+            {
+                try
+                {
+                    TipoProjeto tipoprojeto = (TipoProjeto)cbxTipoProjeto.SelectedItem;
+                    Funcionario funcionario = (Funcionario)cbxFuncionarios.SelectedItem;
+                    camara.EspecialistaSet.Add(new Especialista(tipoprojeto, funcionario));
+                    camara.SaveChanges();
+                    lerDadosEspecialistas();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Falha ao adicionar este Especialista, insira novamente todos os dados nos campos designados", "FALHA AO INSERIR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Close();
+                }
+            }
+            
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -68,6 +84,7 @@ namespace Projecto_de_DA
                 camara.EspecialistaSet.Remove((Especialista)listboxEspecialistas.SelectedItem);
                 camara.SaveChanges();
                 lerDadosEspecialistas();
+                permitirInserir();
             }
         }
 
@@ -96,6 +113,7 @@ namespace Projecto_de_DA
                 btnEliminar.Enabled = true;
 
                 lerDadosEspecialistas();
+                permitirInserir();
             }
         }
 
@@ -153,6 +171,10 @@ namespace Projecto_de_DA
 
             cbxTipoProjeto.Enabled = true;
             cbxFuncionarios.Enabled = true;
+
+            btnDesbloquear.BackgroundImage = Properties.Resources.unlock;
+
+            btnAdicionar.Text = "Adicionar";
         }
     }
 }

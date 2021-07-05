@@ -32,7 +32,9 @@ namespace Projecto_de_DA
             this.components = new System.ComponentModel.Container();
             this.label2 = new System.Windows.Forms.Label();
             this.cbxFuncionarios = new System.Windows.Forms.ComboBox();
+            this.bsFuncionarios = new System.Windows.Forms.BindingSource(this.components);
             this.cbxTipoProjeto = new System.Windows.Forms.ComboBox();
+            this.bsTipoProjetos = new System.Windows.Forms.BindingSource(this.components);
             this.label3 = new System.Windows.Forms.Label();
             this.btnDesbloquear = new System.Windows.Forms.Button();
             this.btnAtualizar = new System.Windows.Forms.Button();
@@ -43,11 +45,9 @@ namespace Projecto_de_DA
             this.btnAdicionar = new System.Windows.Forms.Button();
             this.listboxEspecialistas = new System.Windows.Forms.ListBox();
             this.bsEspecialistas = new System.Windows.Forms.BindingSource(this.components);
-            this.bsTipoProjetos = new System.Windows.Forms.BindingSource(this.components);
-            this.bsFuncionarios = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.bsEspecialistas)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsTipoProjetos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsFuncionarios)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTipoProjetos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsEspecialistas)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -90,6 +90,7 @@ namespace Projecto_de_DA
             // 
             this.btnDesbloquear.BackgroundImage = global::Projecto_de_DA.Properties.Resources.unlock;
             this.btnDesbloquear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnDesbloquear.Enabled = false;
             this.btnDesbloquear.FlatAppearance.BorderSize = 0;
             this.btnDesbloquear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDesbloquear.Location = new System.Drawing.Point(292, 387);
@@ -97,16 +98,19 @@ namespace Projecto_de_DA
             this.btnDesbloquear.Size = new System.Drawing.Size(50, 50);
             this.btnDesbloquear.TabIndex = 72;
             this.btnDesbloquear.UseVisualStyleBackColor = true;
+            this.btnDesbloquear.Visible = false;
             this.btnDesbloquear.Click += new System.EventHandler(this.btnDesbloquear_Click);
             // 
             // btnAtualizar
             // 
+            this.btnAtualizar.Enabled = false;
             this.btnAtualizar.Location = new System.Drawing.Point(461, 370);
             this.btnAtualizar.Name = "btnAtualizar";
             this.btnAtualizar.Size = new System.Drawing.Size(115, 60);
             this.btnAtualizar.TabIndex = 71;
             this.btnAtualizar.Text = "Atualizar Dados";
             this.btnAtualizar.UseVisualStyleBackColor = true;
+            this.btnAtualizar.Visible = false;
             this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
             // 
             // btnEliminar
@@ -191,9 +195,9 @@ namespace Projecto_de_DA
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "formEspecialista";
             this.Text = "formEspecialista";
-            ((System.ComponentModel.ISupportInitialize)(this.bsEspecialistas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsTipoProjetos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsFuncionarios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTipoProjetos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsEspecialistas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

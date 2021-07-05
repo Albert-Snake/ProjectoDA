@@ -75,12 +75,19 @@ namespace Projecto_de_DA
         }
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
-            TipoProjeto tipoprojeto = (TipoProjeto)listBoxTiposProjectos.SelectedItem;
-            tipoprojeto.NrDiasAprovacao = Convert.ToInt32(numericNumerodeDias.Value);
-            tipoprojeto.Designacao = tbxDesignacao.Text;
-            tipoprojeto.TipoProjeto2 = (TipoProjeto)cbxTipoProjecto.SelectedItem;
-            camara.SaveChanges();
-            lerDadosTipoProjectos();
+            if(listBoxTiposProjectos.SelectedIndex != -1)
+            {
+                TipoProjeto tipoprojeto = (TipoProjeto)listBoxTiposProjectos.SelectedItem;
+                tipoprojeto.NrDiasAprovacao = Convert.ToInt32(numericNumerodeDias.Value);
+                tipoprojeto.Designacao = tbxDesignacao.Text;
+                tipoprojeto.TipoProjeto2 = (TipoProjeto)cbxTipoProjecto.SelectedItem;
+                camara.SaveChanges();
+                lerDadosTipoProjectos();
+                //Torna o botao atualizar invivivel e disabled
+                btnAtualizar.Enabled = false;
+                btnAtualizar.Visible = false;
+            }
+
         }
 
         private void btnDesbloquear_Click(object sender, EventArgs e)
@@ -98,9 +105,14 @@ namespace Projecto_de_DA
                         cbxTipoProjecto.Enabled = true;
 
 
-                    ////bloqueia a propriedade de adicionar ou remover caso o botão desbloquear seja pressionado
-                    //buttonGuardar.Enabled = false;
-                    //btnEliminar.Enabled = false;
+                    //bloqueia a propriedade de adicionar ou remover caso o botão desbloquear seja pressionado
+                    btnAdicionar.Enabled = false;
+                    btnEliminar.Enabled = false;
+
+                    //Torna o botao atualizar invivivel e disabled
+                    btnAtualizar.Enabled = false;
+                    btnAtualizar.Visible = false;
+
                 }
 
             }

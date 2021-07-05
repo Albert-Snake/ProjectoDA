@@ -21,6 +21,7 @@ namespace Projecto_de_DA
             lerDadosProjetosAtribuidos();
             lerDadosProjetos();
             lerDadosFuncionarios();
+            permitirInserir();
         }
         #region Ler Dados
         private void lerDadosProjetosAtribuidos()
@@ -51,11 +52,27 @@ namespace Projecto_de_DA
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
-            Projeto projeto = (Projeto)cbxProjeto.SelectedItem;
-            Funcionario funcionario = (Funcionario)cbxFuncionario.SelectedItem;
-            camara.ProjetoAtribuidoSet.Add(new ProjetoAtribuido(dataAtribuicao.Value,projeto, funcionario));
-            camara.SaveChanges();
-            lerDadosProjetosAtribuidos();
+            if(cbxFuncionario.Enabled == false)
+            {
+                permitirInserir();
+            }
+            else
+            {
+                try
+                {
+                    Projeto projeto = (Projeto)cbxProjeto.SelectedItem;
+                    Funcionario funcionario = (Funcionario)cbxFuncionario.SelectedItem;
+                    camara.ProjetoAtribuidoSet.Add(new ProjetoAtribuido(dataAtribuicao.Value, projeto, funcionario));
+                    camara.SaveChanges();
+                    lerDadosProjetosAtribuidos();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Falha ao adicionar esta Atribuição, insira novamente todos os dados nos campos designados", "FALHA AO INSERIR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Close();
+                }
+
+            }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -65,6 +82,7 @@ namespace Projecto_de_DA
                 camara.ProjetoAtribuidoSet.Remove((ProjetoAtribuido)listboxProjetosAtribuidos.SelectedItem);
                 camara.SaveChanges();
                 lerDadosProjetosAtribuidos();
+                permitirInserir();
             }
         }
 
@@ -93,7 +111,14 @@ namespace Projecto_de_DA
                 btnAdicionar.Enabled = true;
                 btnEliminar.Enabled = true;
 
+
+                //Torna o botao atualizar invivivel e disabled
+                btnAtualizar.Enabled = false;
+                btnAtualizar.Visible = false;
+
                 lerDadosProjetosAtribuidos();
+
+                permitirInserir();
             }
         }
 
@@ -141,8 +166,30 @@ namespace Projecto_de_DA
                     //bloqueia a propriedade de adicionar ou remover caso o botão desbloquear seja pressionado
                     btnAdicionar.Enabled = false;
                     btnEliminar.Enabled = false;
+
+
+                    //Torna o botao atualizar vivivel e enabled
+                    btnAtualizar.Enabled = true;
+                    btnAtualizar.Visible = true;
                 }
             }
+        }
+
+        private void permitirInserir()
+        {
+            btnDesbloquear.BackgroundImage = Properties.Resources.unlock;
+
+            //Torna as textboxes impossiveis de se escrever
+            dataAtribuicao.Enabled = true;
+            cbxProjeto.Enabled = true;
+            cbxFuncionario.Enabled = true;
+
+            //alterar o text do botão adicionar
+            btnAdicionar.Text = "Adicionar";
+
+            dataAtribuicao.Value = DateTime.Now;
+            cbxProjeto.SelectedIndex = -1;
+            cbxFuncionario.SelectedIndex = -1;
         }
     }
 }
