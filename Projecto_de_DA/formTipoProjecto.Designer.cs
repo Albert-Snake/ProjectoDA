@@ -45,8 +45,8 @@ namespace Projecto_de_DA
             this.tbxDesignacao = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cbxTipoProjecto = new System.Windows.Forms.ComboBox();
-            this.chekboxTipoPorjecto = new System.Windows.Forms.CheckBox();
             this.bsTipoProjectoCBX = new System.Windows.Forms.BindingSource(this.components);
+            this.chekboxTipoPorjecto = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.bsTipoProjectos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericNumerodeDias)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsTipoProjectoCBX)).BeginInit();
@@ -187,6 +187,7 @@ namespace Projecto_de_DA
             this.cbxTipoProjecto.Name = "cbxTipoProjecto";
             this.cbxTipoProjecto.Size = new System.Drawing.Size(325, 21);
             this.cbxTipoProjecto.TabIndex = 60;
+            this.cbxTipoProjecto.SelectedIndexChanged += new System.EventHandler(this.cbxTipoProjecto_SelectedIndexChanged);
             // 
             // chekboxTipoPorjecto
             // 

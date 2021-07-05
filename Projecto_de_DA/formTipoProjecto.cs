@@ -18,13 +18,7 @@ namespace Projecto_de_DA
             InitializeComponent();
             camara = new GestaoCamaraMunicipalContainer();
             lerDadosTipoProjectos();
-
-            numericNumerodeDias.Enabled = true;
-            tbxDesignacao.Enabled = true;
-
-            numericNumerodeDias.Value = 0;
-            tbxDesignacao.Text = "";
-            cbxTipoProjecto.SelectedIndex = -1;
+            permitirInserir();
         }
         #region Ler Dados
         private void lerDadosTipoProjectos()
@@ -32,6 +26,7 @@ namespace Projecto_de_DA
             bsTipoProjectos.DataSource = camara.TipoProjetoSet.ToList<TipoProjeto>();
             bsTipoProjectoCBX.DataSource = camara.TipoProjetoSet.ToList<TipoProjeto>();
             listBoxTiposProjectos.SelectedIndex = -1;
+            cbxTipoProjecto.SelectedIndex = -1;
             cbxTipoProjecto.Enabled = false;
             chekboxTipoPorjecto.Checked = false;
         }
@@ -46,21 +41,47 @@ namespace Projecto_de_DA
         //Adiciona o novo projecto a tabela TipoProjecto
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
-            //caso tenha um Tipo de projecto pendente
-            if (chekboxTipoPorjecto.Checked)
+            if (tbxDesignacao.Enabled == false)
             {
-                TipoProjeto tipoprojeto = (TipoProjeto)cbxTipoProjecto.SelectedItem;
-                camara.TipoProjetoSet.Add(new TipoProjeto(Convert.ToInt32(numericNumerodeDias.Value), tbxDesignacao.Text, tipoprojeto));
-                camara.SaveChanges();
-                lerDadosTipoProjectos();
+                permitirInserir();
             }
-            //caso não tenha um Tipo de projecto pendente
             else
             {
-                camara.TipoProjetoSet.Add(new TipoProjeto(Convert.ToInt32(numericNumerodeDias.Value), tbxDesignacao.Text));
-                camara.SaveChanges();
-                lerDadosTipoProjectos();
+                //caso tenha um Tipo de projecto pendente
+                if (chekboxTipoPorjecto.Checked == true)
+                {
+                    if (tbxDesignacao.Text != "" && numericNumerodeDias.Value > 0 && cbxTipoProjecto.SelectedIndex != -1)
+                    {
+                        TipoProjeto tipoprojeto = (TipoProjeto)cbxTipoProjecto.SelectedItem;
+                        camara.TipoProjetoSet.Add(new TipoProjeto(Convert.ToInt32(numericNumerodeDias.Value), tbxDesignacao.Text, tipoprojeto));
+                        camara.SaveChanges();
+                        lerDadosTipoProjectos();
+                        permitirInserir();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Falha ao adicionar este Tipo de Projeto, insira novamente todos os dados nos campos designados", "FALHA AO INSERIR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        this.Close();
+                    }
+                }
+                //caso não tenha um Tipo de projecto pendente
+                else
+                {
+                    if (tbxDesignacao.Text != "" && numericNumerodeDias.Value > 0)
+                    {
+                        camara.TipoProjetoSet.Add(new TipoProjeto(Convert.ToInt32(numericNumerodeDias.Value), tbxDesignacao.Text));
+                        camara.SaveChanges();
+                        lerDadosTipoProjectos();
+                        permitirInserir();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Falha ao adicionar este Tipo de Projeto, insira novamente todos os dados nos campos designados", "FALHA AO INSERIR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        this.Close();
+                    }
+                }
             }
+           
         }
 
         //elimina o tipo de projecto selecionado apartir da listbox
@@ -68,9 +89,18 @@ namespace Projecto_de_DA
         {
             if (listBoxTiposProjectos.SelectedIndex != -1)
             {
-                camara.TipoProjetoSet.Remove((TipoProjeto)listBoxTiposProjectos.SelectedItem);
-                camara.SaveChanges();
-                lerDadosTipoProjectos();
+                try
+                {
+                    camara.TipoProjetoSet.Remove((TipoProjeto)listBoxTiposProjectos.SelectedItem);
+                    camara.SaveChanges();
+                    lerDadosTipoProjectos();
+                    permitirInserir();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Este Tipo de Projeto está associado a algum Projeto. Elimine o Projeto associado a este Tipo de Projeto", "FALHA A ELIMINAR O TIPO DE PROJETO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Close();
+                }
             }
         }
         private void btnAtualizar_Click(object sender, EventArgs e)
@@ -83,6 +113,12 @@ namespace Projecto_de_DA
                 tipoprojeto.TipoProjeto2 = (TipoProjeto)cbxTipoProjecto.SelectedItem;
                 camara.SaveChanges();
                 lerDadosTipoProjectos();
+                permitirInserir();
+
+                //bloqueia a propriedade de adicionar ou remover caso o botão desbloquear seja pressionado
+                btnAdicionar.Enabled = true;
+                btnEliminar.Enabled = true;
+
                 //Torna o botao atualizar invivivel e disabled
                 btnAtualizar.Enabled = false;
                 btnAtualizar.Visible = false;
@@ -94,14 +130,15 @@ namespace Projecto_de_DA
         {
             if (listBoxTiposProjectos.SelectedIndex > -1)
             {
-                if (MessageBox.Show("Pretende alterar os dados deste Promotor?", "Alterar dados do Promotor", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Pretende alterar os dados deste Tipo de Projeto?", "Alterar dados do Tipo de Projeto", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     btnDesbloquear.BackgroundImage = Properties.Resources.unlock;
 
                     //Torna as textboxes possiveis de se escrever
                     numericNumerodeDias.Enabled = true;
                     tbxDesignacao.Enabled = true;
-                    if(chekboxTipoPorjecto.Checked == true)
+                    chekboxTipoPorjecto.Enabled = true;
+                    if (chekboxTipoPorjecto.Checked == true)
                         cbxTipoProjecto.Enabled = true;
 
 
@@ -109,9 +146,9 @@ namespace Projecto_de_DA
                     btnAdicionar.Enabled = false;
                     btnEliminar.Enabled = false;
 
-                    //Torna o botao atualizar invivivel e disabled
-                    btnAtualizar.Enabled = false;
-                    btnAtualizar.Visible = false;
+                    //Torna o botao atualizar vivivel e enabled
+                    btnAtualizar.Enabled = true;
+                    btnAtualizar.Visible = true;
 
                 }
 
@@ -127,13 +164,12 @@ namespace Projecto_de_DA
             if (cbxTipoProjecto.Enabled == false)
             {
                 cbxTipoProjecto.Enabled = true;
-                cbxTipoProjecto.DataSource = bsTipoProjectos.DataSource;
-                cbxTipoProjecto.SelectedIndex = -1;
+                
             }
             else
             {
                 cbxTipoProjecto.Enabled = false;
-                cbxTipoProjecto.DataSource = null;
+                cbxTipoProjecto.SelectedIndex = -1;
             }
 
         }
@@ -149,12 +185,53 @@ namespace Projecto_de_DA
                 numericNumerodeDias.Value = Convert.ToInt32(tipoprojeto.NrDiasAprovacao);
                 tbxDesignacao.Text = tipoprojeto.Designacao;
                 cbxTipoProjecto.SelectedItem = tipoprojeto.TipoProjeto2;
-                if (cbxTipoProjecto.SelectedIndex != -1)
-                    chekboxTipoPorjecto.Checked = true;
                 numericNumerodeDias.Enabled = false;
                 tbxDesignacao.Enabled = false;
                 cbxTipoProjecto.Enabled = false;
+                chekboxTipoPorjecto.Enabled = false;
+
+                btnAdicionar.Text = "Limpar Dados";
             }
+        }
+
+        private void cbxTipoProjecto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbxTipoProjecto.SelectedIndex != -1)
+            {
+                chekboxTipoPorjecto.Checked = true;
+            }
+            else
+            {
+                chekboxTipoPorjecto.Checked = false;
+            }
+        }
+
+        private void permitirInserir()
+        {
+            //Torna as textboxes possiveis de se escrever
+            numericNumerodeDias.Enabled = true;
+            tbxDesignacao.Enabled = true;
+            chekboxTipoPorjecto.Checked = false;
+
+            numericNumerodeDias.Value = 0;
+            tbxDesignacao.Text = "";
+            chekboxTipoPorjecto.Checked = false;
+            cbxTipoProjecto.SelectedIndex = -1;
+            cbxTipoProjecto.Enabled = false;
+
+
+            //bloqueia a propriedade de adicionar ou remover caso o botão desbloquear seja pressionado
+            btnAdicionar.Enabled = true;
+            btnEliminar.Enabled = true;
+            chekboxTipoPorjecto.Enabled = true;
+
+            //Torna o botao atualizar invivivel e disabled
+            btnAtualizar.Enabled = false;
+            btnAtualizar.Visible = false;
+
+            btnDesbloquear.BackgroundImage = Properties.Resources.unlock;
+
+            btnAdicionar.Text = "Adiconar";
         }
     }
 }
