@@ -55,7 +55,7 @@ namespace Projecto_de_DA
             }
             else
             {
-                if(tbxNomeDocumento.Text != "" && cbxProjecto.SelectedIndex != -1 && cbxTipoDocumento.SelectedIndex == -1)
+                if(tbxNomeDocumento.Text != "" && cbxProjecto.SelectedIndex != -1 && cbxTipoDocumento.SelectedIndex != -1)
                 {
                     TipoDocumento tipodocumento = (TipoDocumento)cbxTipoDocumento.SelectedItem;
                     Projeto projeto = (Projeto)cbxProjecto.SelectedItem;
