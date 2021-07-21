@@ -12,15 +12,19 @@ namespace Projecto_de_DA
 {
     public partial class Form1 : Form
     {
-        public Form1()
+        public Form1(string tipoperfil, string utilizador)
         {
             InitializeComponent();
+            lblTipoPerfil.Text = tipoperfil;
+            lblUtilizador.Text = utilizador;
         }
 
         private void terminarSessãoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Pretende mesmo Sair?", "SAIR DO PROGRAMA", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                this.Close();
+            if (MessageBox.Show("Pretende mesmo Sair?", "SAIR DO PROGRAMA", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes);
+            Login myForm = new Login();
+            myForm.Show();
+            this.Hide();
         }
 
         private void gestãoDePromotoresToolStripMenuItem_Click(object sender, EventArgs e)

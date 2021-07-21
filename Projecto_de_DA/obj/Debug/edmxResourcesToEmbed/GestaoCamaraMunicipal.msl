@@ -92,6 +92,9 @@
           <ScalarProperty Name="Numero" ColumnName="Numero" />
           <ScalarProperty Name="Nome" ColumnName="Nome" />
           <ScalarProperty Name="Extencao" ColumnName="Extencao" />
+          <ScalarProperty Name="Utilizador" ColumnName="Utilizador" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="TipoPerfil" ColumnName="TipoPerfil" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

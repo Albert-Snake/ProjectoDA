@@ -157,6 +157,9 @@
     <Property Name="Numero" Type="int" Nullable="false" />
     <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Extencao" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Utilizador" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TipoPerfil" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="EspecialistaSet">
     <Key>
@@ -518,6 +521,9 @@
           <NavigationProperty Name="Parecer" Relationship="GestaoCamaraMunicipal.FuncionarioParecer" FromRole="Funcionario" ToRole="Parecer" />
           <NavigationProperty Name="Especialista" Relationship="GestaoCamaraMunicipal.FuncionarioEspecialista" FromRole="Funcionario" ToRole="Especialista" />
           <NavigationProperty Name="ProjetoAtribuido" Relationship="GestaoCamaraMunicipal.FuncionarioProjetoAtribuido" FromRole="Funcionario" ToRole="ProjetoAtribuido" />
+          <Property Name="Utilizador" Type="String" Nullable="false" />
+          <Property Name="Password" Type="String" Nullable="false" />
+          <Property Name="TipoPerfil" Type="String" Nullable="false" />
         </EntityType>
         <EntityType Name="Especialista">
           <Key>
@@ -790,6 +796,9 @@
           <ScalarProperty Name="Numero" ColumnName="Numero" />
           <ScalarProperty Name="Nome" ColumnName="Nome" />
           <ScalarProperty Name="Extencao" ColumnName="Extencao" />
+          <ScalarProperty Name="Utilizador" ColumnName="Utilizador" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="TipoPerfil" ColumnName="TipoPerfil" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

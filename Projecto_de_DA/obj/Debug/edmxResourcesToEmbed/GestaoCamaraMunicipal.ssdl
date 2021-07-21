@@ -152,6 +152,9 @@
     <Property Name="Numero" Type="int" Nullable="false" />
     <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Extencao" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Utilizador" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TipoPerfil" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="EspecialistaSet">
     <Key>

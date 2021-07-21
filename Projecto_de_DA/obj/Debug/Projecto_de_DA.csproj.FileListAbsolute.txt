@@ -206,3 +206,4 @@ C:\Users\Alberto\Documents\GitHub\ProjectoDA\Projecto_de_DA\obj\Debug\Projecto_d
 C:\Users\Alberto\Documents\GitHub\ProjectoDA\Projecto_de_DA\obj\Debug\Projecto_de_DA.TrustInfo.xml
 C:\Users\Alberto\Documents\GitHub\ProjectoDA\Projecto_de_DA\obj\Debug\Projecto_de_DA.exe.manifest
 C:\Users\Alberto\Documents\GitHub\ProjectoDA\Projecto_de_DA\obj\Debug\Projecto_de_DA.application
+C:\Users\Alberto\Documents\GitHub\ProjectoDA\Projecto_de_DA\obj\Debug\Projecto_de_DA.Login.resources

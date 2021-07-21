@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 06/24/2021 19:45:37
--- Generated from EDMX file: C:\Users\Alberto\Documents\Projecto_de_DA\GestaoCamaraMunicipal.edmx
+-- Date Created: 07/21/2021 23:35:27
+-- Generated from EDMX file: C:\Users\Alberto\Documents\GitHub\ProjectoDA\Projecto_de_DA\GestaoCamaraMunicipal.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -180,7 +180,10 @@ GO
 CREATE TABLE [dbo].[FuncionarioSet] (
     [Numero] int  NOT NULL,
     [Nome] nvarchar(max)  NOT NULL,
-    [Extencao] nvarchar(max)  NOT NULL
+    [Extencao] nvarchar(max)  NOT NULL,
+    [Utilizador] nvarchar(max)  NOT NULL,
+    [Password] nvarchar(max)  NOT NULL,
+    [TipoPerfil] nvarchar(max)  NOT NULL
 );
 GO
 

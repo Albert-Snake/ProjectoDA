@@ -45,6 +45,12 @@ namespace Projecto_de_DA
             this.tbxNumeroFuncionario = new System.Windows.Forms.TextBox();
             this.listBoxFuncionarios = new System.Windows.Forms.ListBox();
             this.bsFuncionarios = new System.Windows.Forms.BindingSource(this.components);
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tbxUtilizador = new System.Windows.Forms.TextBox();
+            this.tbxPassword = new System.Windows.Forms.TextBox();
+            this.cbxTipoPerfil = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bsFuncionarios)).BeginInit();
             this.SuspendLayout();
             // 
@@ -186,11 +192,71 @@ namespace Projecto_de_DA
             this.listBoxFuncionarios.TabIndex = 23;
             this.listBoxFuncionarios.SelectedIndexChanged += new System.EventHandler(this.listBoxFuncionarios_SelectedIndexChanged);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(304, 223);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 13);
+            this.label2.TabIndex = 46;
+            this.label2.Text = "Password";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(304, 197);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(50, 13);
+            this.label3.TabIndex = 45;
+            this.label3.Text = "Utilizador";
+            // 
+            // tbxUtilizador
+            // 
+            this.tbxUtilizador.Location = new System.Drawing.Point(361, 194);
+            this.tbxUtilizador.Name = "tbxUtilizador";
+            this.tbxUtilizador.Size = new System.Drawing.Size(496, 20);
+            this.tbxUtilizador.TabIndex = 44;
+            this.tbxUtilizador.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // tbxPassword
+            // 
+            this.tbxPassword.Location = new System.Drawing.Point(361, 220);
+            this.tbxPassword.Name = "tbxPassword";
+            this.tbxPassword.Size = new System.Drawing.Size(496, 20);
+            this.tbxPassword.TabIndex = 43;
+            this.tbxPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // cbxTipoPerfil
+            // 
+            this.cbxTipoPerfil.FormattingEnabled = true;
+            this.cbxTipoPerfil.Items.AddRange(new object[] {
+            "Administrador",
+            "Avaliador"});
+            this.cbxTipoPerfil.Location = new System.Drawing.Point(361, 246);
+            this.cbxTipoPerfil.Name = "cbxTipoPerfil";
+            this.cbxTipoPerfil.Size = new System.Drawing.Size(496, 21);
+            this.cbxTipoPerfil.TabIndex = 47;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(287, 249);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(69, 13);
+            this.label5.TabIndex = 48;
+            this.label5.Text = "Tipo de Perfil";
+            // 
             // formFuncionarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(890, 453);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.cbxTipoPerfil);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.tbxUtilizador);
+            this.Controls.Add(this.tbxPassword);
             this.Controls.Add(this.btnDesbloquear);
             this.Controls.Add(this.btnAtualizar);
             this.Controls.Add(this.btnEliminar);
@@ -231,5 +297,11 @@ namespace Projecto_de_DA
         private System.Windows.Forms.TextBox tbxNumeroFuncionario;
         private System.Windows.Forms.ListBox listBoxFuncionarios;
         private System.Windows.Forms.BindingSource bsFuncionarios;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox tbxUtilizador;
+        private System.Windows.Forms.TextBox tbxPassword;
+        private System.Windows.Forms.ComboBox cbxTipoPerfil;
+        private System.Windows.Forms.Label label5;
     }
 }

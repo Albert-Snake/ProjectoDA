@@ -191,6 +191,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GestaoCamaraMunicipal.edmx</DependentUpon>
     </Compile>
+    <Compile Include="IAcessoDB.cs" />
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="Parecer.cs">
       <DependentUpon>GestaoCamaraMunicipal.tt</DependentUpon>
     </Compile>
@@ -220,6 +227,7 @@
     <Compile Include="TipoProjeto.cs">
       <DependentUpon>GestaoCamaraMunicipal.tt</DependentUpon>
     </Compile>
+    <Compile Include="UsuarioDAL.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -252,6 +260,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formTipoProjecto.resx">
       <DependentUpon>formTipoProjecto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Promotores.resx">
       <DependentUpon>Promotores.cs</DependentUpon>

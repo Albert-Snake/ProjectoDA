@@ -59,7 +59,7 @@ namespace Projecto_de_DA
             {
                 try
                 {
-                    camara.FuncionarioSet.Add(new Funcionario(Convert.ToInt32(tbxNumeroFuncionario.Text), tbxNomeFuncionario.Text, tbxExtencaoFuncionario.Text));
+                    camara.FuncionarioSet.Add(new Funcionario(Convert.ToInt32(tbxNumeroFuncionario.Text), tbxNomeFuncionario.Text, tbxExtencaoFuncionario.Text, tbxUtilizador.Text, tbxPassword.Text, cbxTipoPerfil.Text));
                     camara.SaveChanges();
                     lerDados();
                     permitirInserir();
@@ -141,12 +141,18 @@ namespace Projecto_de_DA
                 tbxNomeFuncionario.Text = funcionario.Nome;
                 tbxNumeroFuncionario.Text = Convert.ToString(funcionario.Numero);
                 tbxExtencaoFuncionario.Text = funcionario.Extencao;
+                tbxUtilizador.Text = funcionario.Utilizador;
+                tbxPassword.Text = funcionario.Password;
+                cbxTipoPerfil.SelectedItem = funcionario.TipoPerfil;
 
                 //Torna as textboxes impossiveis de se escrever
                 tbxNomeFuncionario.ReadOnly = true;
                 tbxNumeroFuncionario.ReadOnly = true;
                 tbxExtencaoFuncionario.ReadOnly = true;
-               
+                tbxUtilizador.ReadOnly = true;
+                tbxPassword.ReadOnly = true;
+                cbxTipoPerfil.Enabled = false;
+
                 //alterar o text do botão adicionar
                 btnAdicionar.Text = "Limpar Dados";
                 //lerDados();
@@ -164,8 +170,11 @@ namespace Projecto_de_DA
 
                     //Torna as textboxes possiveis de se escrever
                     tbxNomeFuncionario.ReadOnly = false;
-                    //tbxNumeroFuncionarioReadOnly = false;
+                    tbxNumeroFuncionario.ReadOnly = false;
                     tbxExtencaoFuncionario.ReadOnly = false;
+                    tbxUtilizador.ReadOnly = false;
+                    tbxPassword.ReadOnly = false;
+                    cbxTipoPerfil.Enabled = true;
 
 
                     //bloqueia a propriedade de adicionar ou remover caso o botão desbloquear seja pressionado
@@ -183,10 +192,16 @@ namespace Projecto_de_DA
             tbxNomeFuncionario.ReadOnly = false;
             tbxNumeroFuncionario.ReadOnly = false;
             tbxExtencaoFuncionario.ReadOnly = false;
+            tbxUtilizador.ReadOnly = false;
+            tbxPassword.ReadOnly = false;
+            cbxTipoPerfil.Enabled = true;
 
             tbxNomeFuncionario.Text = "";
             tbxNumeroFuncionario.Text = "";
             tbxExtencaoFuncionario.Text = "";
+            tbxUtilizador.Text = "";
+            tbxPassword.Text = "";
+            cbxTipoPerfil.SelectedIndex = -1;
 
             btnAdicionar.Text = "Adicionar";
 

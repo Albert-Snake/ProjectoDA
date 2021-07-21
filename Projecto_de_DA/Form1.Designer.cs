@@ -42,14 +42,19 @@ namespace Projecto_de_DA
             this.documentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tiposProcessoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tiposDeProjectosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.especialistasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.atribuirProjectosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.terminarSessãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.especialistasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.atribuirProjectosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblUtilizador = new System.Windows.Forms.Label();
+            this.lblTipoPerfil = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -167,6 +172,20 @@ namespace Projecto_de_DA
             this.tiposDeProjectosToolStripMenuItem.Text = "Tipos de Projectos";
             this.tiposDeProjectosToolStripMenuItem.Click += new System.EventHandler(this.tiposDeProjectosToolStripMenuItem_Click);
             // 
+            // especialistasToolStripMenuItem
+            // 
+            this.especialistasToolStripMenuItem.Name = "especialistasToolStripMenuItem";
+            this.especialistasToolStripMenuItem.Size = new System.Drawing.Size(230, 24);
+            this.especialistasToolStripMenuItem.Text = "Especialistas";
+            this.especialistasToolStripMenuItem.Click += new System.EventHandler(this.especialistasToolStripMenuItem_Click);
+            // 
+            // atribuirProjectosToolStripMenuItem
+            // 
+            this.atribuirProjectosToolStripMenuItem.Name = "atribuirProjectosToolStripMenuItem";
+            this.atribuirProjectosToolStripMenuItem.Size = new System.Drawing.Size(230, 24);
+            this.atribuirProjectosToolStripMenuItem.Text = "Atribuir Projectos";
+            this.atribuirProjectosToolStripMenuItem.Click += new System.EventHandler(this.atribuirProjectosToolStripMenuItem_Click);
+            // 
             // terminarSessãoToolStripMenuItem
             // 
             this.terminarSessãoToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(73)))), ((int)(((byte)(114)))));
@@ -179,6 +198,10 @@ namespace Projecto_de_DA
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(49)))), ((int)(((byte)(47)))));
+            this.panel1.Controls.Add(this.lblTipoPerfil);
+            this.panel1.Controls.Add(this.lblUtilizador);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.label2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 481);
             this.panel1.Name = "panel1";
@@ -215,19 +238,47 @@ namespace Projecto_de_DA
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
-            // especialistasToolStripMenuItem
+            // label2
             // 
-            this.especialistasToolStripMenuItem.Name = "especialistasToolStripMenuItem";
-            this.especialistasToolStripMenuItem.Size = new System.Drawing.Size(230, 24);
-            this.especialistasToolStripMenuItem.Text = "Especialistas";
-            this.especialistasToolStripMenuItem.Click += new System.EventHandler(this.especialistasToolStripMenuItem_Click);
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label2.Location = new System.Drawing.Point(12, 14);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(65, 16);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Utilizador:";
             // 
-            // atribuirProjectosToolStripMenuItem
+            // label3
             // 
-            this.atribuirProjectosToolStripMenuItem.Name = "atribuirProjectosToolStripMenuItem";
-            this.atribuirProjectosToolStripMenuItem.Size = new System.Drawing.Size(230, 24);
-            this.atribuirProjectosToolStripMenuItem.Text = "Atribuir Projectos";
-            this.atribuirProjectosToolStripMenuItem.Click += new System.EventHandler(this.atribuirProjectosToolStripMenuItem_Click);
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label3.Location = new System.Drawing.Point(253, 14);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(82, 16);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Tipo de Perfil:";
+            // 
+            // lblUtilizador
+            // 
+            this.lblUtilizador.AutoSize = true;
+            this.lblUtilizador.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUtilizador.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblUtilizador.Location = new System.Drawing.Point(83, 14);
+            this.lblUtilizador.Name = "lblUtilizador";
+            this.lblUtilizador.Size = new System.Drawing.Size(0, 16);
+            this.lblUtilizador.TabIndex = 2;
+            // 
+            // lblTipoPerfil
+            // 
+            this.lblTipoPerfil.AutoSize = true;
+            this.lblTipoPerfil.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTipoPerfil.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblTipoPerfil.Location = new System.Drawing.Point(341, 14);
+            this.lblTipoPerfil.Name = "lblTipoPerfil";
+            this.lblTipoPerfil.Size = new System.Drawing.Size(0, 16);
+            this.lblTipoPerfil.TabIndex = 3;
             // 
             // Form1
             // 
@@ -244,6 +295,8 @@ namespace Projecto_de_DA
             this.Text = "Form1";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -273,6 +326,10 @@ namespace Projecto_de_DA
         private System.Windows.Forms.ToolStripMenuItem tiposDeProjectosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem especialistasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem atribuirProjectosToolStripMenuItem;
+        private System.Windows.Forms.Label lblTipoPerfil;
+        private System.Windows.Forms.Label lblUtilizador;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
     }
 }
 

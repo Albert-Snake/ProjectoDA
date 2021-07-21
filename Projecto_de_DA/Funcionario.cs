@@ -25,6 +25,9 @@ namespace Projecto_de_DA
         public int Numero { get; set; }
         public string Nome { get; set; }
         public string Extencao { get; set; }
+        public string Utilizador { get; set; }
+        public string Password { get; set; }
+        public string TipoPerfil { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Parecer> Parecer { get; set; }

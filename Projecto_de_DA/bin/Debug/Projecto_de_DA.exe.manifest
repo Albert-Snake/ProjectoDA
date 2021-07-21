@@ -66,14 +66,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Projecto_de_DA.exe" size="205296">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Projecto_de_DA.exe" size="210928">
       <assemblyIdentity name="Projecto_de_DA" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>p4CEIIfxSGXnlYMXYn/mWbvgf6GJh4UW4g1d6nFlnu4=</dsig:DigestValue>
+        <dsig:DigestValue>JKtcSe0ABPlYv0aPKIAixGieMswTB+PH/R6gHPV6Yyg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -86,13 +86,13 @@
       <dsig:DigestValue>T+1lH3aRn/zXrE/0F+nfBmlxW1zXxSaJ8f1znUR00Dg=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="GestaoCamaraMunicipal.edmx.sql" size="15443">
+  <file name="GestaoCamaraMunicipal.edmx.sql" size="15588">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>0elLdXQ8lgOIEdEN2yYZXoBAEj4ed7HAn7xcwm6K8eY=</dsig:DigestValue>
+      <dsig:DigestValue>5zhz8ESIr7uinkEJpo2HLWnOpoHSjMQ2V56UfHZtFe8=</dsig:DigestValue>
     </hash>
   </file>
   <file name="GestaoCamaraMunicipal.tt" size="25290">
